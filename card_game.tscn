@@ -1,0 +1,145 @@
+[gd_scene load_steps=21 format=3 uid="uid://cvdxtsc3m7lex"]
+
+[ext_resource type="Script" path="res://card_game.gd" id="1_f2fnt"]
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rn86q"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_hbdgj"]
+[ext_resource type="Texture2D" uid="uid://c08oobi00v7qf" path="res://assets/cards/king_of_diamonds2.png" id="3_88qcj"]
+[ext_resource type="Texture2D" uid="uid://0xx14gd6dv1c" path="res://assets/cards/3_of_hearts.png" id="4_ae11l"]
+[ext_resource type="Texture2D" uid="uid://c48ca8xyt8s0r" path="res://assets/cards/king_of_clubs2.png" id="5_ti2a7"]
+[ext_resource type="Texture2D" uid="uid://cfv0rqvwytctl" path="res://assets/cards/king_of_spades2.png" id="6_lclbq"]
+[ext_resource type="Texture2D" uid="uid://cbadjpwu7n1t2" path="res://assets/cards/card_back_red.png" id="7_rkk8g"]
+[ext_resource type="Texture2D" uid="uid://bei1l8yppgr05" path="res://assets/cards/queen_of_hearts2.png" id="8_8qp8d"]
+[ext_resource type="Texture2D" uid="uid://btixqsemcw3mi" path="res://assets/cards/jack_of_spades2.png" id="9_rhjfc"]
+[ext_resource type="Texture2D" uid="uid://yf45xvh72bgo" path="res://assets/cards/10_of_hearts.png" id="10_fh5qb"]
+[ext_resource type="Texture2D" uid="uid://dbuqjbe66qfg7" path="res://assets/cards/9_of_clubs.png" id="11_m21si"]
+[ext_resource type="Texture2D" uid="uid://uv2kd6gimoby" path="res://assets/cards/8_of_hearts.png" id="12_12bqy"]
+[ext_resource type="Texture2D" uid="uid://cqa4ysdkivoli" path="res://assets/cards/7_of_clubs.png" id="13_uu6dt"]
+[ext_resource type="PackedScene" uid="uid://rbli4dvy7pnp" path="res://six.tscn" id="14_fryba"]
+[ext_resource type="PackedScene" uid="uid://b60h4mf1wu3yk" path="res://king.tscn" id="15_86upc"]
+[ext_resource type="Texture2D" uid="uid://cqnw6i0mbk5a3" path="res://assets/tear.png" id="16_4hucc"]
+[ext_resource type="Script" path="res://tear_drop.gd" id="17_j7bxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_secyv"]
+size = Vector2(121.5, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyw8n"]
+size = Vector2(122, 177)
+
+[node name="card_game" type="Node2D"]
+script = ExtResource("1_f2fnt")
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_rn86q")
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_hbdgj")
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-408, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_rn86q")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2326, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_rn86q")
+
+[node name="staying_cards" type="Node2D" parent="."]
+
+[node name="KingOfDiamonds2" type="Sprite2D" parent="staying_cards"]
+position = Vector2(702, 174)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_88qcj")
+
+[node name="3OfHearts" type="Sprite2D" parent="staying_cards"]
+position = Vector2(876, 173)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_ae11l")
+
+[node name="KingOfClubs2" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1050, 176)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_ti2a7")
+
+[node name="KingOfSpades2" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1224, 175)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_lclbq")
+
+[node name="joker_back" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1059, 453)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("7_rkk8g")
+
+[node name="CardBackRed" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1229, 454)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("7_rkk8g")
+
+[node name="QueenOfHearts2" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1230, 488)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_8qp8d")
+
+[node name="JackOfSpades2" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1230, 527)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_rhjfc")
+
+[node name="10OfHearts" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1231, 574)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_fh5qb")
+
+[node name="9OfClubs" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1230, 618)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_m21si")
+
+[node name="8OfHearts" type="Sprite2D" parent="staying_cards"]
+position = Vector2(1230, 671)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_12bqy")
+
+[node name="six_move" type="Area2D" parent="staying_cards"]
+
+[node name="7OfClubs" type="Sprite2D" parent="staying_cards/six_move"]
+position = Vector2(1230, 720)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_uu6dt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="staying_cards/six_move"]
+position = Vector2(1230.25, 719)
+shape = SubResource("RectangleShape2D_secyv")
+
+[node name="king_move" type="Area2D" parent="staying_cards"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="staying_cards/king_move"]
+position = Vector2(1061, 479)
+shape = SubResource("RectangleShape2D_dyw8n")
+
+[node name="king" parent="." instance=ExtResource("15_86upc")]
+position = Vector2(1061, 479)
+
+[node name="tear_drop" type="Sprite2D" parent="king"]
+position = Vector2(4, -34)
+scale = Vector2(0.0813815, 0.0813815)
+texture = ExtResource("16_4hucc")
+script = ExtResource("17_j7bxq")
+
+[node name="six" parent="." instance=ExtResource("14_fryba")]
+position = Vector2(885, 453)
+
+[node name="new_six" type="Marker2D" parent="."]
+position = Vector2(1230, 752)
+
+[node name="new_king" type="Marker2D" parent="."]
+position = Vector2(885, 452)
+
+[connection signal="body_entered" from="staying_cards/six_move" to="." method="_on_six_move_body_entered"]
+[connection signal="body_exited" from="staying_cards/six_move" to="." method="_on_six_move_body_exited"]

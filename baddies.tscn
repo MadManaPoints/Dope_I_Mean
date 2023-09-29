@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://kadte05unkw2"]
+
+[ext_resource type="Script" path="res://baddies.gd" id="1_la3gg"]
+[ext_resource type="Texture2D" uid="uid://ct4kf6mclb6tb" path="res://assets/tinder_photos/danielle_resized.png" id="2_lojl1"]
+[ext_resource type="Texture2D" uid="uid://dia0e0uxovfnt" path="res://assets/tinder_photos/kenya_resized.png" id="3_eimrl"]
+[ext_resource type="Texture2D" uid="uid://dg7lvsu1xevnq" path="res://assets/tinder_photos/naveah_resized.png" id="4_cabgs"]
+[ext_resource type="Texture2D" uid="uid://d0n4elpwb3j1u" path="res://assets/tinder_photos/alex_resized.png" id="5_rdcow"]
+[ext_resource type="Texture2D" uid="uid://bguq216m6agke" path="res://assets/tinder_photos/pinki_resized.png" id="6_opqmx"]
+
+[node name="baddies" type="Node2D"]
+script = ExtResource("1_la3gg")
+
+[node name="pinki" type="Sprite2D" parent="."]
+position = Vector2(987, 479)
+texture = ExtResource("6_opqmx")
+
+[node name="alex" type="Sprite2D" parent="."]
+position = Vector2(987, 479)
+texture = ExtResource("5_rdcow")
+
+[node name="naveah" type="Sprite2D" parent="."]
+position = Vector2(987, 479)
+texture = ExtResource("4_cabgs")
+
+[node name="kenya" type="Sprite2D" parent="."]
+position = Vector2(987, 479)
+texture = ExtResource("3_eimrl")
+
+[node name="danielle" type="Sprite2D" parent="."]
+position = Vector2(987, 479)
+texture = ExtResource("2_lojl1")

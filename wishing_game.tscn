@@ -1,0 +1,147 @@
+[gd_scene load_steps=24 format=3 uid="uid://csx2v4pus32yi"]
+
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_1pwug"]
+[ext_resource type="Script" path="res://wishing_game.gd" id="1_msnwq"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_p238b"]
+[ext_resource type="Texture2D" uid="uid://sc1fthkeyk7o" path="res://assets/fountain.jpg" id="3_d2fi6"]
+[ext_resource type="Texture2D" uid="uid://c58x4ymscjgsm" path="res://assets/coin_animation/image 9.png" id="4_kouvr"]
+[ext_resource type="Texture2D" uid="uid://b15om4isl82b" path="res://assets/coin_animation/image 10.png" id="5_fula7"]
+[ext_resource type="Texture2D" uid="uid://cq2gommv87o56" path="res://assets/coin_animation/image 11.png" id="6_ts4p2"]
+[ext_resource type="Texture2D" uid="uid://c54bap5wexvou" path="res://assets/coin_animation/image 12.png" id="7_pfyp8"]
+[ext_resource type="Texture2D" uid="uid://wqb1gmy2e0k7" path="res://assets/coin_animation/image 13.png" id="8_dugjs"]
+[ext_resource type="Texture2D" uid="uid://od3o0jy6gave" path="res://assets/coin_animation/image 14.png" id="9_q6t5s"]
+[ext_resource type="Texture2D" uid="uid://baek61cysjmg0" path="res://assets/coin_animation/image 15.png" id="10_wmlhw"]
+[ext_resource type="Texture2D" uid="uid://otkm0qk6581m" path="res://assets/coin_animation/image 16.png" id="11_npkui"]
+[ext_resource type="Texture2D" uid="uid://ca0010j5m73w2" path="res://assets/coin_animation/image 1.png" id="12_3yy6n"]
+[ext_resource type="Texture2D" uid="uid://c5si2kinjgjb8" path="res://assets/coin_animation/image 2.png" id="13_12lor"]
+[ext_resource type="Texture2D" uid="uid://goiaybca35ch" path="res://assets/coin_animation/image 3.png" id="14_vfvb7"]
+[ext_resource type="Texture2D" uid="uid://d03tuaacbwlma" path="res://assets/coin_animation/image 4.png" id="15_ilkgk"]
+[ext_resource type="Texture2D" uid="uid://7yahcfnacsxn" path="res://assets/coin_animation/image 5.png" id="16_2urfu"]
+[ext_resource type="Texture2D" uid="uid://dkrvwrc1pphsp" path="res://assets/coin_animation/image 6.png" id="17_hw48g"]
+[ext_resource type="Texture2D" uid="uid://dc73b12coinau" path="res://assets/coin_animation/image 7.png" id="18_3fbio"]
+[ext_resource type="Texture2D" uid="uid://d153hw8itibfe" path="res://assets/coin_animation/image 8.png" id="19_eggno"]
+[ext_resource type="PackedScene" uid="uid://nde51nr0wste" path="res://notification_ui.tscn" id="21_7l21u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lkh82"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("4_kouvr")
+}, {
+"duration": 0.5,
+"texture": ExtResource("5_fula7")
+}, {
+"duration": 0.5,
+"texture": ExtResource("6_ts4p2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("7_pfyp8")
+}, {
+"duration": 0.5,
+"texture": ExtResource("8_dugjs")
+}, {
+"duration": 0.5,
+"texture": ExtResource("9_q6t5s")
+}, {
+"duration": 0.5,
+"texture": ExtResource("10_wmlhw")
+}, {
+"duration": 0.5,
+"texture": ExtResource("11_npkui")
+}, {
+"duration": 0.5,
+"texture": ExtResource("12_3yy6n")
+}, {
+"duration": 0.5,
+"texture": ExtResource("13_12lor")
+}, {
+"duration": 0.5,
+"texture": ExtResource("14_vfvb7")
+}, {
+"duration": 0.5,
+"texture": ExtResource("15_ilkgk")
+}, {
+"duration": 0.5,
+"texture": ExtResource("16_2urfu")
+}, {
+"duration": 0.5,
+"texture": ExtResource("17_hw48g")
+}, {
+"duration": 0.5,
+"texture": ExtResource("18_3fbio")
+}, {
+"duration": 0.5,
+"texture": ExtResource("19_eggno")
+}],
+"loop": true,
+"name": &"flip",
+"speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_eggno")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sojuw"]
+size = Vector2(45.3333, 126.667)
+
+[node name="wishing_game" type="Node2D"]
+script = ExtResource("1_msnwq")
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_1pwug")
+metadata/_edit_lock_ = true
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_p238b")
+metadata/_edit_lock_ = true
+
+[node name="fountain" type="Sprite2D" parent="."]
+position = Vector2(957, 540)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_d2fi6")
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_1pwug")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2325, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_1pwug")
+
+[node name="coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(789, 874)
+rotation = -1.5708
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_lkh82")
+animation = &"flip"
+
+[node name="Area2D" type="Area2D" parent="coin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin/Area2D"]
+position = Vector2(-1.33337, 0.666504)
+shape = SubResource("RectangleShape2D_sojuw")
+
+[node name="notification_ui" parent="." instance=ExtResource("21_7l21u")]
+position = Vector2(973, -78)
+
+[node name="wish" type="TextureRect" parent="."]
+offset_left = 732.0
+offset_top = 339.0
+offset_right = 1191.0
+offset_bottom = 716.0
+stretch_mode = 3
+
+[connection signal="mouse_entered" from="coin/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="coin/Area2D" to="." method="_on_area_2d_mouse_exited"]

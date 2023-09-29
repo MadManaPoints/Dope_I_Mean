@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6vjtb0mwmocq"]
+
+[ext_resource type="PackedScene" uid="uid://bmurou3qad1hs" path="res://towers/intrusive_thought.tscn" id="1_ooxbs"]
+
+[sub_resource type="Curve2D" id="Curve2D_ilm4d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1155, 34, 0, 0, 0, 0, 1157, 324, 0, 0, 0, 0, 1127, 388, 0, 0, 0, 0, 750, 377, 0, 0, 0, 0, 712, 404, 0, 0, 0, 0, 712, 404, 0, 0, 0, 0, 712, 404, 0, 0, 0, 0, 708, 659, 0, 0, 0, 0, 833, 750, 0, 0, 0, 0, 998, 799, 0, 0, 0, 0, 1028, 985, 0, 0, 0, 0, 1032, 1125)
+}
+point_count = 12
+
+[node name="td_path" type="Path2D"]
+curve = SubResource("Curve2D_ilm4d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(1155, 34)
+rotation = 1.5639
+rotates = false
+loop = false
+
+[node name="intrusive_thought" parent="PathFollow2D" instance=ExtResource("1_ooxbs")]

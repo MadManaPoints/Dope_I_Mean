@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlhfpmmptwouv"]
+
+[ext_resource type="Texture2D" uid="uid://c8gckkevn8gc0" path="res://assets/sheep.png" id="1_2ib56"]
+[ext_resource type="Script" path="res://sheep.gd" id="1_hidff"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fe30n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2ib56")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kmn3o"]
+radius = 45.0
+height = 90.0
+
+[node name="sheep" type="Node2D"]
+script = ExtResource("1_hidff")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_fe30n")
+animation = &"Move"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_kmn3o")

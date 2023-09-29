@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://rhvf2hip6twj"]
+
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_oorwv"]
+
+[node name="end" type="Node2D"]
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(967, 544)
+scale = Vector2(1.05833, 1.07407)
+texture = ExtResource("1_oorwv")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1928.0
+offset_bottom = 1079.0
+theme_override_font_sizes/font_size = 75
+text = "GOOD NIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1

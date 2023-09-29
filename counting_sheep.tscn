@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=3 uid="uid://e6niyj6oy3e3"]
+
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_2ktqw"]
+[ext_resource type="Script" path="res://counting_sheep.gd" id="1_5jdcl"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_3rcgs"]
+[ext_resource type="Texture2D" uid="uid://5fmqols6qf7q" path="res://assets/forest.png" id="3_tkne7"]
+[ext_resource type="PackedScene" uid="uid://dlhfpmmptwouv" path="res://sheep.tscn" id="5_lsdoy"]
+[ext_resource type="Texture2D" uid="uid://c8gckkevn8gc0" path="res://assets/sheep.png" id="6_rhrr6"]
+
+[node name="counting_sheep" type="Node2D"]
+script = ExtResource("1_5jdcl")
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_2ktqw")
+metadata/_edit_lock_ = true
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_3rcgs")
+metadata/_edit_lock_ = true
+
+[node name="forest" type="Sprite2D" parent="."]
+position = Vector2(618, 546)
+scale = Vector2(1.07685, 1.07685)
+texture = ExtResource("3_tkne7")
+metadata/_edit_lock_ = true
+
+[node name="spawn" type="Marker2D" parent="."]
+position = Vector2(500, 950)
+
+[node name="right_spawn" type="Marker2D" parent="."]
+position = Vector2(1412, 965)
+
+[node name="spawn_everywhere" type="Marker2D" parent="."]
+position = Vector2(577, 29)
+
+[node name="sheep" parent="." instance=ExtResource("5_lsdoy")]
+visible = false
+position = Vector2(546, 958)
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-408, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_2ktqw")
+metadata/_edit_lock_ = true
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(2326, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_2ktqw")
+metadata/_edit_lock_ = true
+
+[node name="score_total" type="Label" parent="."]
+offset_left = 588.0
+offset_top = 17.0
+offset_right = 907.0
+offset_bottom = 81.0
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+
+[node name="r_sheep_1" type="Sprite2D" parent="."]
+position = Vector2(943, 239)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_rhrr6")
+
+[node name="r_sheep_2" type="Sprite2D" parent="."]
+position = Vector2(771, 678)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_rhrr6")
+
+[node name="r_sheep_3" type="Sprite2D" parent="."]
+position = Vector2(1130, 668)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_rhrr6")
+
+[node name="big_sheep" type="Sprite2D" parent="."]
+position = Vector2(55.0001, 546)
+scale = Vector2(2, 2)
+texture = ExtResource("6_rhrr6")
+flip_h = true
+flip_v = true

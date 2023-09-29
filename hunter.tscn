@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://giauf0kfrjht"]
+
+[ext_resource type="Texture2D" uid="uid://c1s48h8enfcki" path="res://assets/rpg/NPC's.png" id="1_6ccng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj5rw"]
+atlas = ExtResource("1_6ccng")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oidbo"]
+atlas = ExtResource("1_6ccng")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_va7pm"]
+atlas = ExtResource("1_6ccng")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_114gi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj5rw")
+}],
+"loop": true,
+"name": &"Back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oidbo")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_va7pm")
+}],
+"loop": true,
+"name": &"Side",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j3qw5"]
+radius = 21.0
+height = 74.0
+
+[node name="hunter" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2.3, 2.3)
+sprite_frames = SubResource("SpriteFrames_114gi")
+animation = &"Front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_j3qw5")

@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwl5tqwbvpd52"]
+
+[ext_resource type="Script" path="res://towers/red_tower.gd" id="1_vtbex"]
+[ext_resource type="Texture2D" uid="uid://cnvymimj5tbml" path="res://assets/tower_defense/towerDefense_tile250.png" id="2_jq3rx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm6kr"]
+size = Vector2(68, 61)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cbsi5"]
+radius = 277.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7qh0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jq3rx")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="red_tower" type="StaticBody2D"]
+script = ExtResource("1_vtbex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0.5)
+shape = SubResource("RectangleShape2D_gm6kr")
+
+[node name="tower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="tower"]
+shape = SubResource("CircleShape2D_cbsi5")
+
+[node name="aim" type="Marker2D" parent="."]
+position = Vector2(44, 0)
+
+[node name="red_tower_sprite" type="AnimatedSprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.69, 0.69)
+sprite_frames = SubResource("SpriteFrames_7qh0u")
+animation = &"Idle"
+metadata/_edit_lock_ = true
+
+[node name="bullet_container" type="Node" parent="."]
+
+[connection signal="body_entered" from="tower" to="." method="_on_tower_body_entered"]
+[connection signal="body_exited" from="tower" to="." method="_on_tower_body_exited"]

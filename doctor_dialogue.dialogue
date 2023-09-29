@@ -1,0 +1,15 @@
+~ doctor
+
+Doctor: You need a refill on your perscription already? 
+- Yes, please.
+	Doctor: Here you go!
+	- Thanks! 
+	- That's it?
+		Sure is! See you next time. 
+- Not really.
+	Doctor: I'll send it to your pharmacy anyway, just in case.
+	- Thanks! 
+	- Seriously? 
+		You're welcome. 
+
+=> END

@@ -1,0 +1,81 @@
+extends Node2D
+
+var photo_num = 0
+var left = false
+var right = false
+
+
+func _ready():
+	$kenya.hide()
+	$naveah.hide()
+	$alex.hide()
+	$pinki.hide()
+
+
+func _process(delta):
+	cycle_photos(delta)
+	
+	
+func cycle_photos(delta):
+	if photo_num == 0: 
+		$danielle.show()
+	if photo_num  == 1:
+		if left == true:
+			$danielle.position.x -= 2000 * delta
+		if right == true:
+			$danielle.position.x += 2000 * delta
+		$kenya.show()
+	if photo_num == 2:
+		if left == true:
+			$kenya.position.x -= 2000 * delta
+		if right == true:
+			$kenya.position.x += 2000 * delta
+		$naveah.show()
+	if photo_num == 3:
+		if left == true:
+			$naveah.position.x -= 2000 * delta
+		if right == true:
+			$naveah.position.x += 2000 * delta
+		$alex.show()
+	if photo_num == 4:
+		if left == true:
+			$alex.position.x -= 2000 * delta
+		if right == true:
+			$alex.position.x += 2000 * delta
+		$pinki.show()
+	if photo_num == 5:
+		if left == true:
+			$pinki.position.x -= 2000 * delta
+		if right == true:
+			$pinki.position.x += 2000 * delta
+		$danielle.hide()
+		$kenya.hide()
+		$naveah.hide()
+		$alex.hide()
+		
+		if round_two.no_snooze == true:
+			$swipe_left.text = "I know"
+			$swipe_right.text = "No, I won't"
+		else:
+			$swipe_left.text = "Probably"
+			$swipe_right.text = "Maybe"
+
+
+func _on_swipe_left_pressed():
+	right = false
+	left = true
+	photo_num += 1
+	if photo_num > 5:
+		get_tree().change_scene_to_file("res://card_game.tscn")
+	
+
+func _on_swipe_right_pressed():
+	if round_two.no_snooze == true:
+		round_two.tinder_match = true
+		get_tree().change_scene_to_file("res://visual_novel.tscn")
+	elif photo_num < 5:
+		left = false
+		right = true
+		photo_num += 1
+	else:
+		get_tree().change_scene_to_file("res://card_game.tscn")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://nde51nr0wste"]
+
+[ext_resource type="Script" path="res://notification.gd" id="1_dmnvw"]
+[ext_resource type="Texture2D" uid="uid://75qo5i4gwq34" path="res://assets/new_notification.png" id="1_gyuj0"]
+[ext_resource type="Texture2D" uid="uid://balag27w776il" path="res://assets/gift_box.png" id="2_oi7xl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4nh0"]
+radius = 64.0
+height = 704.0
+
+[node name="notification" type="Node2D"]
+script = ExtResource("1_dmnvw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.784314)
+texture = ExtResource("1_gyuj0")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-16, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d4nh0")
+
+[node name="gift" type="Sprite2D" parent="."]
+position = Vector2(-256, 6)
+rotation = -0.174533
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_oi7xl")
+
+[node name="label" type="Label" parent="."]
+offset_left = -155.0
+offset_top = -43.0
+offset_right = 283.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "Someone has purchased something from your Wishlist!"
+autowrap_mode = 3
+
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]

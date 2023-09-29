@@ -1,0 +1,218 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdhnturdso70g"]
+
+[ext_resource type="Texture2D" uid="uid://b2sj7ist5he16" path="res://assets/shopping/floor_2.png" id="1_yn1aj"]
+[ext_resource type="Script" path="res://moving_floor.gd" id="2_8ts01"]
+[ext_resource type="Texture2D" uid="uid://woouax45e18r" path="res://assets/baby.png" id="3_gi8d4"]
+[ext_resource type="Texture2D" uid="uid://dsagx55gpnuar" path="res://assets/caution_wet.png" id="4_qpb1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhlgv"]
+size = Vector2(16012, 500)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0buuk"]
+radius = 47.3677
+height = 253.754
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0ve3t"]
+radius = 28.0
+height = 116.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lv60a"]
+size = Vector2(1195, 781)
+
+[node name="store_floor" type="Node2D"]
+
+[node name="moving_floor" type="Sprite2D" parent="."]
+position = Vector2(8001, 855)
+texture = ExtResource("1_yn1aj")
+script = ExtResource("2_8ts01")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="moving_floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/StaticBody2D"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_dhlgv")
+
+[node name="baby_hazard" type="Area2D" parent="moving_floor"]
+position = Vector2(-6001, -855)
+
+[node name="baby" type="Sprite2D" parent="moving_floor/baby_hazard"]
+position = Vector2(2121, 535)
+scale = Vector2(0.591121, 0.591121)
+texture = ExtResource("3_gi8d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/baby_hazard"]
+position = Vector2(2128, 540)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard" type="Area2D" parent="moving_floor"]
+position = Vector2(-8001, -855)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard2" type="Area2D" parent="moving_floor"]
+position = Vector2(-4556, -861)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard2"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard2"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard3" type="Area2D" parent="moving_floor"]
+position = Vector2(-4466, -861)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard3"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard3"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="baby_hazard2" type="Area2D" parent="moving_floor"]
+position = Vector2(-2636, -839)
+
+[node name="baby" type="Sprite2D" parent="moving_floor/baby_hazard2"]
+position = Vector2(2121, 535)
+scale = Vector2(0.591121, 0.591121)
+texture = ExtResource("3_gi8d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/baby_hazard2"]
+position = Vector2(2128, 540)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="baby_hazard3" type="Area2D" parent="moving_floor"]
+position = Vector2(-1220, -837)
+
+[node name="baby" type="Sprite2D" parent="moving_floor/baby_hazard3"]
+position = Vector2(2121, 535)
+scale = Vector2(0.591121, 0.591121)
+texture = ExtResource("3_gi8d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/baby_hazard3"]
+position = Vector2(2128, 540)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="baby_hazard4" type="Area2D" parent="moving_floor"]
+position = Vector2(-2099, -856)
+
+[node name="baby" type="Sprite2D" parent="moving_floor/baby_hazard4"]
+position = Vector2(2121, 535)
+scale = Vector2(0.591121, 0.591121)
+texture = ExtResource("3_gi8d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/baby_hazard4"]
+position = Vector2(2128, 540)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard4" type="Area2D" parent="moving_floor"]
+position = Vector2(1163, -840)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard4"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard4"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard5" type="Area2D" parent="moving_floor"]
+position = Vector2(501, -843)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard5"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard5"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard6" type="Area2D" parent="moving_floor"]
+position = Vector2(402, -846)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard6"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard6"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="caution_hazard7" type="Area2D" parent="moving_floor"]
+position = Vector2(3012, -829)
+
+[node name="caution" type="Sprite2D" parent="moving_floor/caution_hazard7"]
+position = Vector2(2127.39, 584.39)
+rotation = -0.0349066
+scale = Vector2(0.401561, 0.401561)
+texture = ExtResource("4_qpb1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/caution_hazard7"]
+position = Vector2(2126.39, 581.39)
+scale = Vector2(0.591121, 0.591121)
+shape = SubResource("CapsuleShape2D_0buuk")
+
+[node name="baby_hazard5" type="Area2D" parent="moving_floor"]
+position = Vector2(2907, -776)
+
+[node name="baby" type="Sprite2D" parent="moving_floor/baby_hazard5"]
+position = Vector2(2121, 535)
+rotation = 1.5708
+scale = Vector2(0.591121, 0.591121)
+texture = ExtResource("3_gi8d4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/baby_hazard5"]
+position = Vector2(2122, 538)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0ve3t")
+
+[node name="end" type="Area2D" parent="moving_floor"]
+position = Vector2(-8001, -855)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="moving_floor/end"]
+position = Vector2(15365.5, 394.5)
+shape = SubResource("RectangleShape2D_lv60a")
+
+[connection signal="body_entered" from="moving_floor/baby_hazard" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard2" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard3" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/baby_hazard2" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/baby_hazard3" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/baby_hazard4" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard4" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard5" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard6" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/caution_hazard7" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/baby_hazard5" to="moving_floor" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="moving_floor/end" to="moving_floor" method="_on_end_body_entered"]

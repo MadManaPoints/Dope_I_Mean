@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8kmsrtr8xhjr"]
+
+[ext_resource type="PackedScene" uid="uid://du2ubqd88svxr" path="res://cart_player.tscn" id="1_ibhsk"]
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_mddkx"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_vr0j3"]
+[ext_resource type="PackedScene" uid="uid://bdhnturdso70g" path="res://store_floor.tscn" id="4_y7bai"]
+[ext_resource type="PackedScene" uid="uid://dqfwey8dypt1e" path="res://items_in_cart.tscn" id="5_0iqru"]
+
+[node name="cart_game" type="Node2D"]
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_mddkx")
+metadata/_edit_lock_ = true
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_vr0j3")
+
+[node name="cart_player" parent="." instance=ExtResource("1_ibhsk")]
+position = Vector2(731, 514)
+
+[node name="Camera2D" type="Camera2D" parent="cart_player"]
+position = Vector2(200, 0)
+limit_left = 0
+limit_top = 0
+limit_bottom = 1080
+
+[node name="store_floor" parent="." instance=ExtResource("4_y7bai")]
+position = Vector2(556, 69)
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_mddkx")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2325, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_mddkx")
+
+[node name="items_in_cart" parent="." instance=ExtResource("5_0iqru")]

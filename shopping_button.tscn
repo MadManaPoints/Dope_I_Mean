@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://x78yli4ckosk"]
+
+[ext_resource type="Texture2D" uid="uid://pngdvx03ufch" path="res://assets/shopping/shopping_button.png" id="1_pvwbs"]
+[ext_resource type="Texture2D" uid="uid://cjbrr1w1x3apr" path="res://assets/shopping/shopping_button_clicked.png" id="1_ss64o"]
+[ext_resource type="Script" path="res://shopping_button.gd" id="2_ipkaa"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgh25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ss64o")
+}],
+"loop": true,
+"name": &"Clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pvwbs")
+}],
+"loop": true,
+"name": &"Unclicked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2obp"]
+size = Vector2(500, 300)
+
+[node name="shopping_button" type="AnimatedSprite2D"]
+scale = Vector2(0.289341, 0.195833)
+sprite_frames = SubResource("SpriteFrames_fgh25")
+animation = &"Unclicked"
+script = ExtResource("2_ipkaa")
+
+[node name="Area2D" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_i2obp")
+metadata/_edit_lock_ = true
+
+[node name="buy" type="Label" parent="."]
+offset_left = -245.0
+offset_top = -136.0
+offset_right = 245.0
+offset_bottom = 141.0
+theme_override_font_sizes/font_size = 75
+text = "Sample Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

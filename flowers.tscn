@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm2jcr6gw03rx"]
+
+[ext_resource type="Script" path="res://flowers.gd" id="1_1k6ek"]
+[ext_resource type="Texture2D" uid="uid://wjw8qhhl1f7l" path="res://assets/heart_icon.png" id="1_a0pvo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gsaur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a0pvo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w720x"]
+radius = 75.0
+height = 210.0
+
+[node name="flowers" type="CharacterBody2D"]
+script = ExtResource("1_1k6ek")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gsaur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_w720x")

@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceuipdlnpk8y1"]
+
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rv30k"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_3apys"]
+[ext_resource type="PackedScene" uid="uid://kadte05unkw2" path="res://baddies.tscn" id="3_1f0cx"]
+[ext_resource type="Texture2D" uid="uid://c2mr6o6fqb6a" path="res://assets/folder_icon.png" id="4_oc1wx"]
+[ext_resource type="Texture2D" uid="uid://wjw8qhhl1f7l" path="res://assets/heart_icon.png" id="5_3w1kn"]
+
+[node name="tinder" type="Node2D"]
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_rv30k")
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_3apys")
+
+[node name="die_alone" type="Label" parent="."]
+offset_left = 556.0
+offset_top = 192.0
+offset_right = 1364.0
+offset_bottom = 750.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "YOU'RE GONNA DIE ALONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="baddies" parent="." instance=ExtResource("3_1f0cx")]
+position = Vector2(-21, 12)
+
+[node name="swipe_left" type="Button" parent="baddies"]
+offset_left = 636.0
+offset_top = 869.0
+offset_right = 902.0
+offset_bottom = 983.0
+theme_override_font_sizes/font_size = 30
+text = "SWIPE LEFT </3"
+
+[node name="swipe_right" type="Button" parent="baddies"]
+offset_left = 1069.0
+offset_top = 869.0
+offset_right = 1335.0
+offset_bottom = 983.0
+theme_override_font_sizes/font_size = 30
+text = "SWIPE RIGHT <3"
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-408, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_rv30k")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2326, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_rv30k")
+
+[node name="folder" type="Sprite2D" parent="."]
+position = Vector2(879, 53)
+scale = Vector2(0.0424805, 0.0424805)
+texture = ExtResource("4_oc1wx")
+
+[node name="heart" type="Sprite2D" parent="."]
+position = Vector2(878, 58)
+scale = Vector2(0.121094, 0.121094)
+texture = ExtResource("5_3w1kn")
+
+[node name="finder" type="Label" parent="."]
+offset_left = 931.0
+offset_top = 29.0
+offset_right = 1215.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "FINDER"
+
+[connection signal="pressed" from="baddies/swipe_left" to="baddies" method="_on_swipe_left_pressed"]
+[connection signal="pressed" from="baddies/swipe_right" to="baddies" method="_on_swipe_right_pressed"]

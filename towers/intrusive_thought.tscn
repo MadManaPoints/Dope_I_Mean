@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmurou3qad1hs"]
+
+[ext_resource type="Script" path="res://towers/intrusive_thought.gd" id="1_axyqr"]
+[ext_resource type="Texture2D" uid="uid://bjnqtcljkxhc0" path="res://assets/new_tower_defense/intrusive_thought.png" id="2_fs0tb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8j68h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fs0tb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jprx8"]
+radius = 46.0
+height = 156.0
+
+[node name="intrusive_thought" type="CharacterBody2D"]
+script = ExtResource("1_axyqr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_8j68h")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2)
+shape = SubResource("CapsuleShape2D_jprx8")

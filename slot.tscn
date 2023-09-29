@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://b1i2a2h7w5ai6"]
+
+[ext_resource type="Texture2D" uid="uid://dnh7skf3ax15d" path="res://assets/slot_machine/coin_end_up.png" id="1_w0o3g"]
+[ext_resource type="Texture2D" uid="uid://bvgl6j16y1uuy" path="res://assets/slot_machine/coin_end_down.png" id="2_jqe7l"]
+[ext_resource type="Texture2D" uid="uid://7uubj2blpqvw" path="res://assets/slot_machine/slot_machine_2.png" id="2_y6wco"]
+[ext_resource type="Texture2D" uid="uid://cx22e1l0xdv7b" path="res://assets/slot_machine/slot_machine_3.png" id="3_8ifyu"]
+[ext_resource type="Texture2D" uid="uid://dk6fy6g1ufqcq" path="res://assets/slot_machine/slot_machine_start.png" id="4_f52og"]
+[ext_resource type="Texture2D" uid="uid://bu3he0xnijsox" path="res://assets/slot_machine/skull_end_up.png" id="5_aqmwp"]
+[ext_resource type="Texture2D" uid="uid://clkhq8whhln7q" path="res://assets/slot_machine/skull_end_2_up.png" id="6_207pg"]
+[ext_resource type="Texture2D" uid="uid://b1oj5jdeyu5ee" path="res://assets/slot_machine/new_start_up.png" id="7_s61tm"]
+[ext_resource type="Texture2D" uid="uid://bg84vrgshs7ud" path="res://assets/slot_machine/skull_end_down.png" id="8_1oxfi"]
+[ext_resource type="Texture2D" uid="uid://by6olv0yvjjrm" path="res://assets/slot_machine/new_start_down.png" id="8_ilrod"]
+[ext_resource type="Texture2D" uid="uid://xg3cwvjtxld3" path="res://assets/slot_machine/toilet_end_up.png" id="9_aqij2"]
+[ext_resource type="Texture2D" uid="uid://bsjcmhk2lc5hy" path="res://assets/slot_machine/toilet_end_down.png" id="12_4mllg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fo65u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_w0o3g")
+}],
+"loop": true,
+"name": &"Coin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jqe7l")
+}],
+"loop": false,
+"name": &"Coin_Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_y6wco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8ifyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f52og")
+}],
+"loop": true,
+"name": &"Pull",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_aqmwp")
+}],
+"loop": false,
+"name": &"Skull",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_207pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_aqmwp")
+}],
+"loop": true,
+"name": &"Skull_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1oxfi")
+}],
+"loop": false,
+"name": &"Skull_Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_s61tm")
+}],
+"loop": true,
+"name": &"Start",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_s61tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ilrod")
+}],
+"loop": false,
+"name": &"Start_Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_aqij2")
+}],
+"loop": true,
+"name": &"Toilet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_4mllg")
+}],
+"loop": false,
+"name": &"Toilet_Down",
+"speed": 5.0
+}]
+
+[node name="slot" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fo65u")
+animation = &"Coin_Down"

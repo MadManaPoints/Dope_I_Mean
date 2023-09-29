@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=3 uid="uid://bitrs5euj3gu6"]
+
+[ext_resource type="Script" path="res://bumblebee.gd" id="1_f10bi"]
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jw2kx"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_dxbra"]
+[ext_resource type="Texture2D" uid="uid://c6vetj2y42k5f" path="res://assets/og_bee.png" id="3_acdm8"]
+[ext_resource type="PackedScene" uid="uid://bm2jcr6gw03rx" path="res://flowers.tscn" id="4_oq5rx"]
+[ext_resource type="Texture2D" uid="uid://dld0fddfi7klb" path="res://assets/rec/rec_button_0.png" id="5_ra3kk"]
+[ext_resource type="Texture2D" uid="uid://c5ncsgxepjs36" path="res://assets/rec/rec_button_1.png" id="6_jmd4x"]
+[ext_resource type="Texture2D" uid="uid://3rxwiyy8tg4u" path="res://assets/rec/rec_button_2.png" id="7_q1i35"]
+[ext_resource type="Texture2D" uid="uid://ch8jsvquhmnff" path="res://assets/rec/rec_button_3.png" id="8_ysusf"]
+[ext_resource type="Texture2D" uid="uid://dfgsomh88il85" path="res://assets/rec/rec_button_4.png" id="9_6pxp8"]
+[ext_resource type="Texture2D" uid="uid://bis52vy8flgg0" path="res://assets/rec/rec_button_5.png" id="10_ry73w"]
+[ext_resource type="Texture2D" uid="uid://b6a6naxdl06c7" path="res://assets/rec/rec_button_6.png" id="11_f0ots"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sswgr"]
+radius = 62.0
+height = 164.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v7iqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ra3kk")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ra3kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jmd4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q1i35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ysusf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6pxp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ry73w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f0ots")
+}],
+"loop": false,
+"name": &"Record",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_f0ots")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ry73w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6pxp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ysusf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q1i35")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jmd4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ra3kk")
+}],
+"loop": false,
+"name": &"Stop",
+"speed": 24.0
+}]
+
+[node name="bumblebee" type="Node2D"]
+script = ExtResource("1_f10bi")
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_jw2kx")
+metadata/_edit_lock_ = true
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_dxbra")
+metadata/_edit_lock_ = true
+
+[node name="OgBee" type="Sprite2D" parent="."]
+position = Vector2(880, 319)
+texture = ExtResource("3_acdm8")
+
+[node name="detection" type="Area2D" parent="OgBee"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OgBee/detection"]
+position = Vector2(-2, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sswgr")
+
+[node name="flowers" parent="." instance=ExtResource("4_oq5rx")]
+position = Vector2(1205, 904)
+
+[node name="for_now" type="Sprite2D" parent="."]
+position = Vector2(969, 1413)
+texture = ExtResource("1_jw2kx")
+
+[node name="rec" type="AnimatedSprite2D" parent="."]
+position = Vector2(965, 987)
+sprite_frames = SubResource("SpriteFrames_v7iqm")
+animation = &"Stop"
+
+[node name="timer_1" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="timer_2" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="OgBee/detection" to="." method="_on_detection_body_entered"]
+[connection signal="timeout" from="timer_1" to="." method="_on_timer_1_timeout"]
+[connection signal="timeout" from="timer_2" to="." method="_on_timer_2_timeout"]

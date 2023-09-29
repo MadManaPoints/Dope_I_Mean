@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://du2ubqd88svxr"]
+
+[ext_resource type="Texture2D" uid="uid://crfb05rm7qw7o" path="res://assets/shopping/cart_icon.png" id="1_jrtxo"]
+[ext_resource type="Script" path="res://cart_player.gd" id="1_mdrwm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw2nc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jrtxo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ogqkn"]
+radius = 52.0
+height = 112.0
+
+[node name="cart_player" type="CharacterBody2D"]
+script = ExtResource("1_mdrwm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.00001, 17)
+scale = Vector2(0.65, 0.65)
+sprite_frames = SubResource("SpriteFrames_sw2nc")
+animation = &"Idle"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 28)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_ogqkn")
