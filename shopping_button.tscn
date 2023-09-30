@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://x78yli4ckosk"]
 
-[ext_resource type="Texture2D" uid="uid://pngdvx03ufch" path="res://assets/shopping/shopping_button.png" id="1_pvwbs"]
-[ext_resource type="Texture2D" uid="uid://cjbrr1w1x3apr" path="res://assets/shopping/shopping_button_clicked.png" id="1_ss64o"]
+[ext_resource type="Texture2D" uid="uid://vuhd33qh6day" path="res://assets/shopping/new_shop_clicked.png" id="1_waark"]
+[ext_resource type="Texture2D" uid="uid://dgtv3sxvkb84i" path="res://assets/shopping/new_shop_button.png" id="2_eosps"]
 [ext_resource type="Script" path="res://shopping_button.gd" id="2_ipkaa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fgh25"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ss64o")
+"texture": ExtResource("1_waark")
 }],
 "loop": true,
 "name": &"Clicked",
@@ -16,18 +16,18 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_pvwbs")
+"texture": ExtResource("2_eosps")
 }],
 "loop": true,
 "name": &"Unclicked",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2obp"]
-size = Vector2(500, 300)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pvr7l"]
+radius = 40.0
+height = 402.0
 
 [node name="shopping_button" type="AnimatedSprite2D"]
-scale = Vector2(0.289341, 0.195833)
 sprite_frames = SubResource("SpriteFrames_fgh25")
 animation = &"Unclicked"
 script = ExtResource("2_ipkaa")
@@ -36,19 +36,18 @@ script = ExtResource("2_ipkaa")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_i2obp")
-metadata/_edit_lock_ = true
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pvr7l")
 
 [node name="buy" type="Label" parent="."]
-offset_left = -245.0
-offset_top = -136.0
-offset_right = 245.0
-offset_bottom = 141.0
-theme_override_font_sizes/font_size = 75
+offset_left = -185.0
+offset_top = -31.0
+offset_right = 184.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 40
 text = "Sample Text"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_lock_ = true
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

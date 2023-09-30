@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvdxtsc3m7lex"]
+[gd_scene load_steps=23 format=3 uid="uid://cvdxtsc3m7lex"]
 
 [ext_resource type="Script" path="res://card_game.gd" id="1_f2fnt"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rn86q"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_hbdgj"]
 [ext_resource type="Texture2D" uid="uid://c08oobi00v7qf" path="res://assets/cards/king_of_diamonds2.png" id="3_88qcj"]
 [ext_resource type="Texture2D" uid="uid://0xx14gd6dv1c" path="res://assets/cards/3_of_hearts.png" id="4_ae11l"]
+[ext_resource type="Texture2D" uid="uid://jla5dmifskot" path="res://assets/cards/solitaire_background.png" id="4_tpsef"]
 [ext_resource type="Texture2D" uid="uid://c48ca8xyt8s0r" path="res://assets/cards/king_of_clubs2.png" id="5_ti2a7"]
 [ext_resource type="Texture2D" uid="uid://cfv0rqvwytctl" path="res://assets/cards/king_of_spades2.png" id="6_lclbq"]
 [ext_resource type="Texture2D" uid="uid://cbadjpwu7n1t2" path="res://assets/cards/card_back_red.png" id="7_rkk8g"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b60h4mf1wu3yk" path="res://king.tscn" id="15_86upc"]
 [ext_resource type="Texture2D" uid="uid://cqnw6i0mbk5a3" path="res://assets/tear.png" id="16_4hucc"]
 [ext_resource type="Script" path="res://tear_drop.gd" id="17_j7bxq"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="19_nk72x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_secyv"]
 size = Vector2(121.5, 180)
@@ -39,35 +41,30 @@ rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_hbdgj")
 
-[node name="left_black_screen" type="Sprite2D" parent="."]
-position = Vector2(-408, 516)
-scale = Vector2(1, 1.18333)
-texture = ExtResource("1_rn86q")
-
-[node name="right_black_screen" type="Sprite2D" parent="."]
-position = Vector2(2326, 568.5)
-scale = Vector2(1, 1.16019)
-texture = ExtResource("1_rn86q")
+[node name="solitaire_background" type="Sprite2D" parent="."]
+position = Vector2(963, 533.333)
+scale = Vector2(1.04444, 1.04444)
+texture = ExtResource("4_tpsef")
 
 [node name="staying_cards" type="Node2D" parent="."]
 
 [node name="KingOfDiamonds2" type="Sprite2D" parent="staying_cards"]
-position = Vector2(702, 174)
+position = Vector2(702, 200)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_88qcj")
 
 [node name="3OfHearts" type="Sprite2D" parent="staying_cards"]
-position = Vector2(876, 173)
+position = Vector2(876, 200)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_ae11l")
 
 [node name="KingOfClubs2" type="Sprite2D" parent="staying_cards"]
-position = Vector2(1050, 176)
+position = Vector2(1050, 200)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_ti2a7")
 
 [node name="KingOfSpades2" type="Sprite2D" parent="staying_cards"]
-position = Vector2(1224, 175)
+position = Vector2(1224, 200)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_lclbq")
 
@@ -140,6 +137,20 @@ position = Vector2(1230, 752)
 
 [node name="new_king" type="Marker2D" parent="."]
 position = Vector2(885, 452)
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("19_nk72x")
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_rn86q")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2323, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_rn86q")
 
 [connection signal="body_entered" from="staying_cards/six_move" to="." method="_on_six_move_body_entered"]
 [connection signal="body_exited" from="staying_cards/six_move" to="." method="_on_six_move_body_exited"]

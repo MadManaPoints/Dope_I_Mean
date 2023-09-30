@@ -80,7 +80,7 @@ func first_time():
 			final_sheep_timer = get_tree().create_timer(final_seconds)
 
 func score_tally():
-	$score_total.set_text("Sheep Count: " + str(score))
+	$score_total.set_text("Sheep: " + str(score))
 	$score_total.get_text()
 	
 	if Input.is_action_just_pressed("mouse_left"):

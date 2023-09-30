@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://br6mmmm4dycoh"]
+[gd_scene load_steps=19 format=3 uid="uid://br6mmmm4dycoh"]
 
 [ext_resource type="Script" path="res://potato_chip_game.gd" id="1_35wu6"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_gd00o"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ctn8oo748bmhx" path="res://assets/potato/cat_head_3.png" id="8_qbmag"]
 [ext_resource type="Texture2D" uid="uid://c07buac3d61ms" path="res://assets/potato/cat_head_blink.png" id="9_qj2ps"]
 [ext_resource type="Texture2D" uid="uid://b0cu1v6fcf1vx" path="res://assets/potato/cat_head_5.png" id="10_gtxy5"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="14_fr3wc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orcos"]
 animations = [{
@@ -143,7 +144,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_p7ixk")
 
 [node name="may" type="AnimatedSprite2D" parent="."]
-position = Vector2(1154, 180)
+position = Vector2(1154, 258)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_orcos")
 animation = &"High"
@@ -182,11 +183,15 @@ position = Vector2(5.84937, -10.1383)
 shape = SubResource("CircleShape2D_fhawp")
 
 [node name="score" type="Label" parent="."]
-offset_left = 577.0
-offset_top = 17.0
-offset_right = 827.0
-offset_bottom = 104.0
+offset_left = 600.0
+offset_top = 41.0
+offset_right = 850.0
+offset_bottom = 128.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("14_fr3wc")
 
 [connection signal="area_entered" from="chips/grab" to="." method="_on_grab_area_entered"]

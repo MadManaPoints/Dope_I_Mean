@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	if round_two.notification == true:
 		position += velocity * delta
-		if position.y > 80:
+		if position.y > 155:
 			velocity = Vector2.ZERO
 	
 	if can_click == true and Input.is_action_just_pressed("mouse_left"):

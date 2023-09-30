@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var left_boundary = 625
+var left_boundary = 635
 var right_boundary = 1290
 var top_boundary = 75
 var bottom_boundary = 1005

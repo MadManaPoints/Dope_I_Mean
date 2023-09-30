@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8kmsrtr8xhjr"]
+[gd_scene load_steps=7 format=3 uid="uid://c8kmsrtr8xhjr"]
 
 [ext_resource type="PackedScene" uid="uid://du2ubqd88svxr" path="res://cart_player.tscn" id="1_ibhsk"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_mddkx"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_vr0j3"]
 [ext_resource type="PackedScene" uid="uid://bdhnturdso70g" path="res://store_floor.tscn" id="4_y7bai"]
 [ext_resource type="PackedScene" uid="uid://dqfwey8dypt1e" path="res://items_in_cart.tscn" id="5_0iqru"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="6_ymaww"]
 
 [node name="cart_game" type="Node2D"]
 
@@ -43,3 +44,7 @@ scale = Vector2(1, 1.16019)
 texture = ExtResource("1_mddkx")
 
 [node name="items_in_cart" parent="." instance=ExtResource("5_0iqru")]
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("6_ymaww")

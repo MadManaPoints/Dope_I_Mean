@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba78ombsv4v8p"]
+
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="1_8o8kq"]
+
+[node name="phone_frame" type="CanvasLayer"]
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(961, 540)
+scale = Vector2(1.015, 1.015)
+texture = ExtResource("1_8o8kq")

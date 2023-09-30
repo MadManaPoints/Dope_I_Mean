@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnqkxa351i1qu"]
+[gd_scene load_steps=6 format=3 uid="uid://bnqkxa351i1qu"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_cqegy"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_kkehm"]
 [ext_resource type="Texture2D" uid="uid://chscpa88jogge" path="res://assets/doc.png" id="3_n1rkj"]
 [ext_resource type="PackedScene" uid="uid://bgdwvqgcy8uio" path="res://doctor_dialogue.tscn" id="4_h8w83"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="5_epf3i"]
 
 [node name="doctor_visit" type="Node2D"]
 
@@ -25,17 +26,21 @@ position = Vector2(860, 541)
 texture = ExtResource("3_n1rkj")
 
 [node name="left_black_screen" type="Sprite2D" parent="."]
-position = Vector2(-408, 516)
+position = Vector2(-405, 516)
 scale = Vector2(1, 1.18333)
 texture = ExtResource("1_cqegy")
 
 [node name="right_black_screen" type="Sprite2D" parent="."]
-position = Vector2(2326, 568.5)
+position = Vector2(2323, 568.5)
 scale = Vector2(1, 1.16019)
 texture = ExtResource("1_cqegy")
 
 [node name="Control" parent="." instance=ExtResource("4_h8w83")]
-offset_left = 960.0
+offset_left = 915.0
 offset_top = 1127.0
-offset_right = 960.0
+offset_right = 915.0
 offset_bottom = 1127.0
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("5_epf3i")

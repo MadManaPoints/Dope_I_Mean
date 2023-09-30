@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(758, 196), Vector2(758, 210)]
+"values": [Vector2(715, 196), Vector2(715, 210)]
 }
 
 [sub_resource type="Animation" id="Animation_8o4hs"]
@@ -56,12 +56,12 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -416.0
+offset_left = -327.0
 offset_top = -343.0
 offset_right = 415.0
 offset_bottom = -65.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 script = ExtResource("1_m4ebl")
 
 [node name="TextureRect" type="TextureRect" parent="dialogue_box"]

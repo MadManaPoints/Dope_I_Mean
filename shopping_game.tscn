@@ -18,50 +18,64 @@
 [ext_resource type="Texture2D" uid="uid://cc5yr6rb4e4ov" path="res://assets/shopping/thumbnails/crystal.png" id="15_x15ne"]
 [ext_resource type="Texture2D" uid="uid://cvchn1rv34jlk" path="res://assets/shopping/thumbnails/headphones.png" id="16_n1yxf"]
 [ext_resource type="Texture2D" uid="uid://dclsfakkpqwxm" path="res://assets/shopping/thumbnails/plant.png" id="17_skogw"]
-[ext_resource type="Texture2D" uid="uid://oon6kn047pgi" path="res://icon.svg" id="19_o6jy5"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="20_7uik4"]
+[ext_resource type="Texture2D" uid="uid://b8luvp606hiwh" path="res://assets/shopping/arrow.png" id="20_n0hr6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nkdm3"]
-size = Vector2(288.998, 118.003)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbiia"]
+radius = 39.9988
+height = 404.006
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq12c"]
-size = Vector2(287.001, 116.001)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqx2c"]
+radius = 40.005
+height = 401.005
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_apohx"]
-size = Vector2(288, 121.001)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1fbi"]
+radius = 40.4967
+height = 400.007
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_an0g8"]
-size = Vector2(290.001, 121.005)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d6ggv"]
+radius = 40.4962
+height = 402.008
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flrjd"]
-size = Vector2(292, 114.736)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eeff2"]
+radius = 39.8998
+height = 404.002
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsne3"]
-size = Vector2(283, 114.737)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sfb4y"]
+radius = 39.9992
+height = 399.999
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkpvu"]
-size = Vector2(284, 111.002)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqqgh"]
+radius = 39.4998
+height = 400.002
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvr03"]
-size = Vector2(280.001, 114.739)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ohpo"]
+radius = 39.8937
+height = 400.003
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxbs6"]
-size = Vector2(289, 113.512)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2q575"]
+radius = 39.9958
+height = 404.006
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1nnp"]
-size = Vector2(290.001, 114.74)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hq1j6"]
+radius = 40.0027
+height = 400.006
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbbhe"]
-size = Vector2(290.001, 116.742)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fiiey"]
+radius = 40.0027
+height = 400.005
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ciwmp"]
-size = Vector2(289.001, 118.741)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i1hke"]
+radius = 39.9998
+height = 400.005
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfxgo"]
-size = Vector2(126, 129)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pjyrx"]
+radius = 86.0
+height = 328.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bphmn"]
-size = Vector2(128, 130)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8o11"]
+radius = 96.0
+height = 344.0
 
 [node name="shopping_game" type="Node2D"]
 script = ExtResource("1_kfvar")
@@ -87,13 +101,13 @@ texture = ExtResource("16_n1yxf")
 
 [node name="shopping_button5" parent="white_phone_screen/headphones" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_1" type="Area2D" parent="white_phone_screen/headphones"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/headphones/item_1"]
-position = Vector2(2.00085, 449.999)
-shape = SubResource("RectangleShape2D_nkdm3")
+position = Vector2(0.000732422, 449.999)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vbiia")
 
 [node name="sex_toy" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-374.596, -119.997)
@@ -103,13 +117,13 @@ texture = ExtResource("11_0vm6k")
 
 [node name="shopping_button6" parent="white_phone_screen/sex_toy" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_2" type="Area2D" parent="white_phone_screen/sex_toy"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/sex_toy/item_2"]
-position = Vector2(0.500488, 451.999)
-shape = SubResource("RectangleShape2D_pq12c")
+position = Vector2(0.500488, 449.999)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_cqx2c")
 
 [node name="crystal" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-271.378, 120.002)
@@ -119,13 +133,13 @@ texture = ExtResource("15_x15ne")
 
 [node name="shopping_button7" parent="white_phone_screen/crystal" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_3" type="Area2D" parent="white_phone_screen/crystal"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/crystal/item_3"]
-position = Vector2(2.00172, 449.498)
-shape = SubResource("RectangleShape2D_apohx")
+position = Vector2(0.00170898, 449.498)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_h1fbi")
 
 [node name="plant" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-271.379, -119.998)
@@ -135,13 +149,13 @@ texture = ExtResource("17_skogw")
 
 [node name="shopping_button8" parent="white_phone_screen/plant" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_4" type="Area2D" parent="white_phone_screen/plant"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/plant/item_4"]
 position = Vector2(-0.997555, 449.505)
-shape = SubResource("RectangleShape2D_an0g8")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d6ggv")
 
 [node name="controller" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-124.092, 120.001)
@@ -151,13 +165,13 @@ texture = ExtResource("3_ckeda")
 
 [node name="shopping_button" parent="white_phone_screen/controller" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578683, 0.391667)
 
 [node name="item_5" type="Area2D" parent="white_phone_screen/controller"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/controller/item_5"]
-position = Vector2(2.00097, 448.101)
-shape = SubResource("RectangleShape2D_flrjd")
+position = Vector2(0.000976563, 450.101)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_eeff2")
 
 [node name="purse" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-124.092, -119.999)
@@ -167,13 +181,13 @@ texture = ExtResource("4_by2v8")
 
 [node name="shopping_button2" parent="white_phone_screen/purse" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578683, 0.391667)
 
 [node name="item_6" type="Area2D" parent="white_phone_screen/purse"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/purse/item_6"]
-position = Vector2(-0.000999451, 453.999)
-shape = SubResource("RectangleShape2D_hsne3")
+position = Vector2(-0.000976563, 449.999)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sfb4y")
 
 [node name="camera" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-20.8752, 120)
@@ -183,13 +197,13 @@ texture = ExtResource("5_kbncn")
 
 [node name="shopping_button3" parent="white_phone_screen/camera" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578683, 0.391667)
 
 [node name="item_7" type="Area2D" parent="white_phone_screen/camera"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/camera/item_7"]
-position = Vector2(2.00122, 450.5)
-shape = SubResource("RectangleShape2D_mkpvu")
+position = Vector2(0.0012207, 450.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lqqgh")
 
 [node name="cbd" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(-20.8755, -120)
@@ -199,13 +213,13 @@ texture = ExtResource("6_dec6l")
 
 [node name="shopping_button4" parent="white_phone_screen/cbd" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578683, 0.391667)
 
 [node name="item_8" type="Area2D" parent="white_phone_screen/cbd"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/cbd/item_8"]
-position = Vector2(-1.99854, 448.106)
-shape = SubResource("RectangleShape2D_wvr03")
+position = Vector2(0.00146484, 450.106)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6ohpo")
 
 [node name="tv" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(126.412, 119.997)
@@ -215,13 +229,13 @@ texture = ExtResource("12_5jmtb")
 
 [node name="shopping_button10" parent="white_phone_screen/tv" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_9" type="Area2D" parent="white_phone_screen/tv"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/tv/item_9"]
-position = Vector2(-0.00155258, 447.999)
-shape = SubResource("RectangleShape2D_nxbs6")
+position = Vector2(-0.00152588, 449.999)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2q575")
 
 [node name="pineapple" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(126.411, -120.003)
@@ -231,13 +245,13 @@ texture = ExtResource("13_7tgjp")
 
 [node name="shopping_button11" parent="white_phone_screen/pineapple" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_10" type="Area2D" parent="white_phone_screen/pineapple"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/pineapple/item_10"]
-position = Vector2(-0.00149536, 447.998)
-shape = SubResource("RectangleShape2D_t1nnp")
+position = Vector2(-0.00149536, 449.998)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_hq1j6")
 
 [node name="astrology" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(229.628, 119.996)
@@ -247,13 +261,13 @@ texture = ExtResource("14_3mtxv")
 
 [node name="shopping_button9" parent="white_phone_screen/astrology" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_11" type="Area2D" parent="white_phone_screen/astrology"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/astrology/item_11"]
-position = Vector2(-2.0015, 449.998)
-shape = SubResource("RectangleShape2D_mbbhe")
+position = Vector2(-0.00146484, 449.998)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fiiey")
 
 [node name="giftcard" type="Sprite2D" parent="white_phone_screen"]
 position = Vector2(229.628, -120.004)
@@ -263,13 +277,13 @@ texture = ExtResource("10_su3ks")
 
 [node name="shopping_button12" parent="white_phone_screen/giftcard" instance=ExtResource("7_nyuqs")]
 position = Vector2(0, 450)
-scale = Vector2(0.578682, 0.391667)
 
 [node name="item_12" type="Area2D" parent="white_phone_screen/giftcard"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="white_phone_screen/giftcard/item_12"]
-position = Vector2(-2.00167, 449.998)
-shape = SubResource("RectangleShape2D_ciwmp")
+position = Vector2(-0.00164795, 449.998)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_i1hke")
 
 [node name="cart_icon" type="Sprite2D" parent="."]
 position = Vector2(1306, 52)
@@ -299,24 +313,32 @@ offset_bottom = 78.0
 theme_override_font_sizes/font_size = 25
 text = "Go to Cart"
 
-[node name="Up" type="Sprite2D" parent="."]
-position = Vector2(962, 71)
-texture = ExtResource("19_o6jy5")
+[node name="up" type="Sprite2D" parent="."]
+position = Vector2(960, 122)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("20_n0hr6")
 
-[node name="top" type="Area2D" parent="Up"]
+[node name="top" type="Area2D" parent="up"]
+position = Vector2(-4, 12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Up/top"]
-position = Vector2(-1, 0.5)
-shape = SubResource("RectangleShape2D_gfxgo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="up/top"]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pjyrx")
 
-[node name="Down" type="Sprite2D" parent="."]
-position = Vector2(970, 1008)
-texture = ExtResource("19_o6jy5")
+[node name="down" type="Sprite2D" parent="."]
+position = Vector2(960, 1019)
+rotation = 3.14159
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("20_n0hr6")
 
-[node name="bottom" type="Area2D" parent="Down"]
+[node name="bottom" type="Area2D" parent="down"]
+position = Vector2(11, 48)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Down/bottom"]
-shape = SubResource("RectangleShape2D_bphmn")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="down/bottom"]
+position = Vector2(-11, -48)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_f8o11")
 
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -347,7 +369,7 @@ texture = ExtResource("20_7uik4")
 [connection signal="mouse_entered" from="white_phone_screen/giftcard/item_12" to="." method="_on_item_12_mouse_entered"]
 [connection signal="mouse_exited" from="white_phone_screen/giftcard/item_12" to="." method="_on_item_12_mouse_exited"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="Up/top" to="." method="_on_top_mouse_entered"]
-[connection signal="mouse_exited" from="Up/top" to="." method="_on_top_mouse_exited"]
-[connection signal="mouse_entered" from="Down/bottom" to="." method="_on_bottom_mouse_entered"]
-[connection signal="mouse_exited" from="Down/bottom" to="." method="_on_bottom_mouse_exited"]
+[connection signal="mouse_entered" from="up/top" to="." method="_on_top_mouse_entered"]
+[connection signal="mouse_exited" from="up/top" to="." method="_on_top_mouse_exited"]
+[connection signal="mouse_entered" from="down/bottom" to="." method="_on_bottom_mouse_entered"]
+[connection signal="mouse_exited" from="down/bottom" to="." method="_on_bottom_mouse_exited"]

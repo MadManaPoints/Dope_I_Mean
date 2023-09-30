@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://d30sg2pym6l6m"]
+[gd_scene load_steps=34 format=3 uid="uid://d30sg2pym6l6m"]
 
 [ext_resource type="Script" path="res://role_playing_game.gd" id="1_2ofah"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_k3got"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://f4cf5b434e10" path="res://assets/rpg/house_and_fence.png" id="4_38qon"]
 [ext_resource type="PackedScene" uid="uid://dnpbygc825vvh" path="res://rpg_guy_2.tscn" id="5_u6k7i"]
 [ext_resource type="Texture2D" uid="uid://c1s48h8enfcki" path="res://assets/rpg/NPC's.png" id="7_ij04g"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="9_512g1"]
 [ext_resource type="Texture2D" uid="uid://ehns1mt74tji" path="res://assets/Visual Novel/Exports/Dialogue/black_dialogue_container.png" id="9_d87k3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d6qe"]
@@ -494,13 +495,6 @@ layer_0/tile_data = PackedInt32Array(11, 327680, 0, 12, 393216, 0, 13, 458752, 0
 [node name="rpg_guy_2" parent="." instance=ExtResource("5_u6k7i")]
 position = Vector2(930, 1000)
 
-[node name="camera" type="Camera2D" parent="rpg_guy_2"]
-zoom = Vector2(1.5, 1.5)
-limit_left = 700
-limit_top = 0
-limit_right = 1600
-limit_bottom = 1080
-
 [node name="tiles_2" type="TileMap" parent="."]
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_x5ei3")
@@ -603,6 +597,10 @@ offset_right = 697.0
 offset_bottom = 169.0
 theme_override_font_sizes/normal_font_size = 23
 text = "Here goes some placeholder text so I can see how this thing is going to wrap around. Looks good. Let's try it one more time. "
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("9_512g1")
 
 [connection signal="body_entered" from="gravedigger/digger_detection" to="." method="_on_digger_detection_body_entered"]
 [connection signal="body_exited" from="gravedigger/digger_detection" to="." method="_on_digger_detection_body_exited"]

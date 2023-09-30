@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnhhwdqa0f88v"]
+[gd_scene load_steps=8 format=3 uid="uid://dnhhwdqa0f88v"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jxh7y"]
 [ext_resource type="Script" path="res://catch_game.gd" id="1_mewcj"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://catch_score.gd" id="5_yxqjt"]
 [ext_resource type="PackedScene" uid="uid://drmh3aiglbywb" path="res://coin.tscn" id="6_kfubf"]
 [ext_resource type="PackedScene" uid="uid://dnx0orr83rwwf" path="res://catch_player.tscn" id="7_gsqnk"]
+[ext_resource type="PackedScene" uid="uid://ba78ombsv4v8p" path="res://phone_frame.tscn" id="8_q1sk5"]
 
 [node name="catch_game" type="Node2D"]
 script = ExtResource("1_mewcj")
@@ -33,10 +34,10 @@ z_index = 1
 position = Vector2(696, 773)
 
 [node name="score" type="Label" parent="."]
-offset_left = 577.0
-offset_top = 31.0
-offset_right = 758.0
-offset_bottom = 119.0
+offset_left = 609.0
+offset_top = 38.0
+offset_right = 790.0
+offset_bottom = 126.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 script = ExtResource("5_yxqjt")
@@ -51,5 +52,7 @@ theme_override_font_sizes/font_size = 20
 
 [node name="coin" parent="." instance=ExtResource("6_kfubf")]
 position = Vector2(602, -111)
+
+[node name="phone_frame" parent="." instance=ExtResource("8_q1sk5")]
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,8 @@
 extends Node2D
 
 
+@onready var up_button = $up
+@onready var down_button = $down
 var up = false
 var mid = true
 var down = false
@@ -63,6 +65,16 @@ func scroll():
 		else:
 			$white_phone_screen.position.y = -260
 
+	if $white_phone_screen.position.y == 1900:
+		up_button.hide()
+		down_button.show()
+	elif $white_phone_screen.position.y == -260:
+		up_button.show()
+		down_button.hide()
+	else:
+		up_button.show()
+		down_button.show()
+		
 func _on_top_mouse_entered():
 	top = true
 

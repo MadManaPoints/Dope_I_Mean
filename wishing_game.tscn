@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://csx2v4pus32yi"]
+[gd_scene load_steps=25 format=3 uid="uid://csx2v4pus32yi"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_1pwug"]
 [ext_resource type="Script" path="res://wishing_game.gd" id="1_msnwq"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dc73b12coinau" path="res://assets/coin_animation/image 7.png" id="18_3fbio"]
 [ext_resource type="Texture2D" uid="uid://d153hw8itibfe" path="res://assets/coin_animation/image 8.png" id="19_eggno"]
 [ext_resource type="PackedScene" uid="uid://nde51nr0wste" path="res://notification_ui.tscn" id="21_7l21u"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="22_1dw2n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkh82"]
 animations = [{
@@ -137,11 +138,15 @@ shape = SubResource("RectangleShape2D_sojuw")
 position = Vector2(973, -78)
 
 [node name="wish" type="TextureRect" parent="."]
-offset_left = 732.0
+offset_left = 718.0
 offset_top = 339.0
-offset_right = 1191.0
+offset_right = 1177.0
 offset_bottom = 716.0
 stretch_mode = 3
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("22_1dw2n")
 
 [connection signal="mouse_entered" from="coin/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="coin/Area2D" to="." method="_on_area_2d_mouse_exited"]
