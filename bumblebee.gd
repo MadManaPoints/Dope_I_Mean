@@ -13,6 +13,9 @@ func _ready():
 
 
 func _process(_delta):
+	var timer = get_tree().create_timer(.5)
+	await timer.timeout
+
 	if red == true and player.green == true:
 		change_scene()
 		
