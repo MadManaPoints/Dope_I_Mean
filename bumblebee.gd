@@ -3,21 +3,34 @@ extends Node2D
 
 @onready var rec = $rec
 @onready var player = $flowers
+@onready var rect = $rect
 var red = true
 var win = false
+var alpha = true
+var buffer = false
 
 
 func _ready():
 	$timer_1.start()
 	rec.play("Idle")
-
-
-func _process(_delta):
 	var timer = get_tree().create_timer(.5)
 	await timer.timeout
+	buffer = true
+
+func _process(_delta):
+	if alpha == false:
+		rect.modulate.a -= 0.01
+		if rect.modulate.a <= .75:
+			rect.modulate.a = .75
+
+	if alpha == true:
+		rect.modulate.a += 0.01
+		if rect.modulate.a >= 1:
+			rect.modulate.a = 1
 
 	if red == true and player.green == true:
-		change_scene()
+		if buffer == true:
+			change_scene()
 		
 func change_scene():
 	if round_two.no_snooze == true:
@@ -38,6 +51,7 @@ func change_scene():
 
 func _on_timer_1_timeout():
 	rec.play("Record")
+	alpha = false
 	red = false
 	$timer_1.stop()
 	$timer_2.wait_time = randf_range(2, 5)
@@ -46,6 +60,7 @@ func _on_timer_1_timeout():
 
 func _on_timer_2_timeout():
 	rec.play("Stop")
+	alpha = true
 	await rec.animation_finished
 	red = true
 	rec.play("Idle")

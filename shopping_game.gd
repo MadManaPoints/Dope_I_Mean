@@ -53,7 +53,7 @@ func cart():
 
 func scroll():
 	if top == true and Input.is_action_just_pressed("mouse_left"):
-		if $white_phone_screen.position.y == -200:
+		if $white_phone_screen.position.y == -260:
 			$white_phone_screen.position.y = 820
 		else:
 			$white_phone_screen.position.y = 1900
@@ -61,7 +61,7 @@ func scroll():
 		if $white_phone_screen.position.y == 1900:
 			$white_phone_screen.position.y = 820
 		else:
-			$white_phone_screen.position.y = -200
+			$white_phone_screen.position.y = -260
 
 func _on_top_mouse_entered():
 	top = true

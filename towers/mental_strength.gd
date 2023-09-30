@@ -2,17 +2,20 @@ extends Label
 
 
 func _process(_delta):
-	if round_two.num_alive > 7:
-		self.text = "Mental Strength: STRONG"
-	elif round_two.num_alive > 4 and round_two.num_alive < 8 :
-		self.text = "Mental Strength: MEDIUM"
+	if round_two.num_alive >= 5:
+		self.text = "STRONG"
+		self.modulate = Color (0, .6, .4)
+	elif round_two.num_alive > 3 and round_two.num_alive < 5 :
+		self.text = "MEDIUM"
+		self.modulate = Color (0, 0, 1)
 	else:
-		self.text = "Mental Strength: WEAK"
+		self.text = "WEAK"
+		self.modulate = Color(1, 0, 0)
 
 	change_scene()
 
 func change_scene():
-	if round_two.num_alive > 9:
+	if round_two.num_alive > 8:
 		round_two.mental_muscle = true
 		if round_two.no_snooze == false:
 			get_tree().change_scene_to_file("res://farm_sim.tscn")

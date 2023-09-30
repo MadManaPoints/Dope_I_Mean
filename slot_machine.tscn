@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://mx4wjpb65vfe"]
+[gd_scene load_steps=47 format=3 uid="uid://mx4wjpb65vfe"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_x6jm6"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_jjq1c"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://5w1mcs1q6e48" path="res://assets/slot_machine/lootbox/outfit_10.png" id="41_a533o"]
 [ext_resource type="Texture2D" uid="uid://c2e81gn2ydyxx" path="res://assets/slot_machine/lootbox/outfit_11.png" id="42_yqpld"]
 [ext_resource type="Texture2D" uid="uid://fpt8e6u83i4p" path="res://assets/slot_machine/lootbox/outfit_12.png" id="43_hxukg"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="44_iu7nk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ff521"]
 animations = [{
@@ -256,12 +257,12 @@ position = Vector2(926, 633)
 script = ExtResource("4_wd2b3")
 
 [node name="coins" type="Label" parent="slot"]
-offset_left = -260.0
-offset_top = -598.0
-offset_right = -7.0
-offset_bottom = -532.0
+offset_left = -244.0
+offset_top = -594.0
+offset_right = 9.0
+offset_bottom = -528.0
 theme_override_font_sizes/font_size = 45
-text = "2000
+text = "200
 "
 
 [node name="chest" type="AnimatedSprite2D" parent="slot"]
@@ -303,6 +304,10 @@ scale = Vector2(1, 1.16019)
 texture = ExtResource("1_x6jm6")
 
 [node name="icon" type="Sprite2D" parent="."]
-position = Vector2(622, 64)
-scale = Vector2(0.5, 0.5)
+position = Vector2(643, 68)
+scale = Vector2(0.4375, 0.4375)
 texture = ExtResource("7_cp60x")
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("44_iu7nk")

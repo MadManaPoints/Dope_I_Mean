@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bitrs5euj3gu6"]
+[gd_scene load_steps=16 format=3 uid="uid://bitrs5euj3gu6"]
 
 [ext_resource type="Script" path="res://bumblebee.gd" id="1_f10bi"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jw2kx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dfgsomh88il85" path="res://assets/rec/rec_button_4.png" id="9_6pxp8"]
 [ext_resource type="Texture2D" uid="uid://bis52vy8flgg0" path="res://assets/rec/rec_button_5.png" id="10_ry73w"]
 [ext_resource type="Texture2D" uid="uid://b6a6naxdl06c7" path="res://assets/rec/rec_button_6.png" id="11_f0ots"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="13_6arry"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sswgr"]
 radius = 62.0
@@ -110,12 +111,12 @@ shape = SubResource("CapsuleShape2D_sswgr")
 [node name="flowers" parent="." instance=ExtResource("4_oq5rx")]
 position = Vector2(1205, 904)
 
-[node name="for_now" type="Sprite2D" parent="."]
-position = Vector2(969, 1413)
+[node name="rect" type="Sprite2D" parent="."]
+position = Vector2(969, 1418)
 texture = ExtResource("1_jw2kx")
 
 [node name="rec" type="AnimatedSprite2D" parent="."]
-position = Vector2(965, 987)
+position = Vector2(962, 967)
 sprite_frames = SubResource("SpriteFrames_v7iqm")
 animation = &"Stop"
 
@@ -124,6 +125,10 @@ wait_time = 3.0
 
 [node name="timer_2" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("13_6arry")
 
 [connection signal="body_entered" from="OgBee/detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="timer_1" to="." method="_on_timer_1_timeout"]
