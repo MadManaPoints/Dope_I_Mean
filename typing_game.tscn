@@ -29,6 +29,11 @@ position = Vector2(1129, 586)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_yatxt")
 
+[node name="no_phones" type="Sprite2D" parent="."]
+position = Vector2(1222, 142)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_riqh2")
+
 [node name="clock" type="Sprite2D" parent="."]
 position = Vector2(1120, 512)
 scale = Vector2(0.3, 0.3)
@@ -55,10 +60,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "Score: 0"
 
-[node name="no_phones" type="Sprite2D" parent="."]
-position = Vector2(1222, 142)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_riqh2")
+[node name="overlay" type="Sprite2D" parent="clock"]
+visible = false
+position = Vector2(-196.667, 93.3334)
+scale = Vector2(3.71354, 3.62037)
+texture = ExtResource("1_3sau8")
 
 [node name="left_black_screen" type="Sprite2D" parent="."]
 position = Vector2(-405, 516)

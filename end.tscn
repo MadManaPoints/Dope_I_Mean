@@ -1,18 +1,285 @@
-[gd_scene load_steps=2 format=3 uid="uid://rhvf2hip6twj"]
+[gd_scene load_steps=11 format=3 uid="uid://rhvf2hip6twj"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_oorwv"]
+[ext_resource type="Script" path="res://end.gd" id="1_x47ii"]
+[ext_resource type="Texture2D" uid="uid://dvntt8w62w3d6" path="res://assets/blank_screen.png" id="2_qtxlj"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="3_qf4i4"]
+[ext_resource type="Texture2D" uid="uid://c0ioo4pbo4rfx" path="res://assets/line.png" id="5_7fvl8"]
+[ext_resource type="Script" path="res://alarm_button.gd" id="5_ng51f"]
+[ext_resource type="Texture2D" uid="uid://ffmlkwg5ivrt" path="res://assets/alarm_off.png" id="6_jxel5"]
+[ext_resource type="Texture2D" uid="uid://bj4a2bl6jbif8" path="res://assets/alarm_on.png" id="7_ropyv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oewui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_jxel5")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ropyv")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5f85v"]
+radius = 50.0
+height = 172.0
 
 [node name="end" type="Node2D"]
+script = ExtResource("1_x47ii")
 
 [node name="black_screen" type="Sprite2D" parent="."]
 position = Vector2(967, 544)
 scale = Vector2(1.05833, 1.07407)
 texture = ExtResource("1_oorwv")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 1928.0
-offset_bottom = 1079.0
-theme_override_font_sizes/font_size = 75
-text = "GOOD NIGHT"
+[node name="blank_screen" type="Sprite2D" parent="."]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+position = Vector2(956, 524)
+texture = ExtResource("2_qtxlj")
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("3_qf4i4")
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_oorwv")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2325, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_oorwv")
+
+[node name="alarm_button" type="Node2D" parent="."]
+position = Vector2(1190, 275)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("5_ng51f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="alarm_button"]
+sprite_frames = SubResource("SpriteFrames_oewui")
+animation = &"off"
+
+[node name="Area2D" type="Area2D" parent="alarm_button/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alarm_button/AnimatedSprite2D/Area2D"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f85v")
+
+[node name="time" type="Label" parent="alarm_button"]
+offset_left = -807.143
+offset_top = -94.1429
+offset_right = -556.143
+offset_bottom = 94.8571
+theme_override_font_sizes/font_size = 100
+text = "6:00"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AM" type="Label" parent="alarm_button"]
+offset_left = -575.714
+offset_top = 2.85714
+offset_right = -519.714
+offset_bottom = 47.8571
+theme_override_font_sizes/font_size = 30
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="alarm_button2" type="Node2D" parent="."]
+position = Vector2(1189, 425)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("5_ng51f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="alarm_button2"]
+sprite_frames = SubResource("SpriteFrames_oewui")
+animation = &"off"
+
+[node name="Area2D" type="Area2D" parent="alarm_button2/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alarm_button2/AnimatedSprite2D/Area2D"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f85v")
+
+[node name="time" type="Label" parent="alarm_button2"]
+offset_left = -807.143
+offset_top = -94.1429
+offset_right = -556.143
+offset_bottom = 94.8571
+theme_override_font_sizes/font_size = 100
+text = "6:15"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AM" type="Label" parent="alarm_button2"]
+offset_left = -575.714
+offset_top = 2.85714
+offset_right = -519.714
+offset_bottom = 47.8571
+theme_override_font_sizes/font_size = 30
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="alarm_button3" type="Node2D" parent="."]
+position = Vector2(1189, 575)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("5_ng51f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="alarm_button3"]
+sprite_frames = SubResource("SpriteFrames_oewui")
+animation = &"off"
+
+[node name="Area2D" type="Area2D" parent="alarm_button3/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alarm_button3/AnimatedSprite2D/Area2D"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f85v")
+
+[node name="time" type="Label" parent="alarm_button3"]
+offset_left = -807.143
+offset_top = -94.1429
+offset_right = -556.143
+offset_bottom = 94.8571
+theme_override_font_sizes/font_size = 100
+text = "7:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AM" type="Label" parent="alarm_button3"]
+offset_left = -575.714
+offset_top = 2.85714
+offset_right = -519.714
+offset_bottom = 47.8571
+theme_override_font_sizes/font_size = 30
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="alarm_button4" type="Node2D" parent="."]
+position = Vector2(1185, 725)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("5_ng51f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="alarm_button4"]
+sprite_frames = SubResource("SpriteFrames_oewui")
+animation = &"off"
+
+[node name="Area2D" type="Area2D" parent="alarm_button4/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alarm_button4/AnimatedSprite2D/Area2D"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f85v")
+
+[node name="time" type="Label" parent="alarm_button4"]
+offset_left = -807.143
+offset_top = -94.1429
+offset_right = -556.143
+offset_bottom = 94.8571
+theme_override_font_sizes/font_size = 100
+text = "7:05"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AM" type="Label" parent="alarm_button4"]
+offset_left = -575.714
+offset_top = 2.85714
+offset_right = -519.714
+offset_bottom = 47.8571
+theme_override_font_sizes/font_size = 30
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="alarm_button5" type="Node2D" parent="."]
+position = Vector2(1187, 875)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("5_ng51f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="alarm_button5"]
+sprite_frames = SubResource("SpriteFrames_oewui")
+animation = &"off"
+
+[node name="Area2D" type="Area2D" parent="alarm_button5/AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alarm_button5/AnimatedSprite2D/Area2D"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f85v")
+
+[node name="time" type="Label" parent="alarm_button5"]
+offset_left = -807.143
+offset_top = -94.1429
+offset_right = -556.143
+offset_bottom = 94.8571
+theme_override_font_sizes/font_size = 100
+text = "9:30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AM" type="Label" parent="alarm_button5"]
+offset_left = -575.714
+offset_top = 2.85714
+offset_right = -519.714
+offset_bottom = 47.8571
+theme_override_font_sizes/font_size = 30
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="line_1" type="Sprite2D" parent="."]
+position = Vector2(980, 200)
+texture = ExtResource("5_7fvl8")
+
+[node name="line_6" type="Sprite2D" parent="."]
+position = Vector2(980, 350)
+texture = ExtResource("5_7fvl8")
+
+[node name="line_2" type="Sprite2D" parent="."]
+position = Vector2(980, 500)
+texture = ExtResource("5_7fvl8")
+
+[node name="line_3" type="Sprite2D" parent="."]
+position = Vector2(980, 650)
+texture = ExtResource("5_7fvl8")
+
+[node name="line_4" type="Sprite2D" parent="."]
+position = Vector2(980, 800)
+texture = ExtResource("5_7fvl8")
+
+[node name="line_5" type="Sprite2D" parent="."]
+position = Vector2(980, 950)
+texture = ExtResource("5_7fvl8")
+
+[node name="done" type="Button" parent="."]
+offset_left = 591.0
+offset_top = 36.0
+offset_right = 773.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(0.937255, 0.482353, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Done"
+
+[connection signal="mouse_entered" from="alarm_button/AnimatedSprite2D/Area2D" to="alarm_button" method="_on_area_2d_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="alarm_button/AnimatedSprite2D/Area2D" to="alarm_button" method="_on_area_2d_mouse_exited" flags=18]
+[connection signal="mouse_entered" from="alarm_button2/AnimatedSprite2D/Area2D" to="alarm_button2" method="_on_area_2d_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="alarm_button2/AnimatedSprite2D/Area2D" to="alarm_button2" method="_on_area_2d_mouse_exited" flags=18]
+[connection signal="mouse_entered" from="alarm_button3/AnimatedSprite2D/Area2D" to="alarm_button3" method="_on_area_2d_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="alarm_button3/AnimatedSprite2D/Area2D" to="alarm_button3" method="_on_area_2d_mouse_exited" flags=18]
+[connection signal="mouse_entered" from="alarm_button4/AnimatedSprite2D/Area2D" to="alarm_button4" method="_on_area_2d_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="alarm_button4/AnimatedSprite2D/Area2D" to="alarm_button4" method="_on_area_2d_mouse_exited" flags=18]
+[connection signal="mouse_entered" from="alarm_button5/AnimatedSprite2D/Area2D" to="alarm_button5" method="_on_area_2d_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="alarm_button5/AnimatedSprite2D/Area2D" to="alarm_button5" method="_on_area_2d_mouse_exited" flags=18]
+[connection signal="pressed" from="done" to="." method="_on_done_pressed"]

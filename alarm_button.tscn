@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdjlgsi3q1gj8"]
+
+[ext_resource type="Script" path="res://alarm_button.gd" id="1_qe2fe"]
+[ext_resource type="Texture2D" uid="uid://ffmlkwg5ivrt" path="res://assets/alarm_off.png" id="1_s2wwd"]
+[ext_resource type="Texture2D" uid="uid://bj4a2bl6jbif8" path="res://assets/alarm_on.png" id="2_wqcmu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oewui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_s2wwd")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wqcmu")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5f85v"]
+radius = 50.0
+height = 172.0
+
+[node name="alarm_button" type="Node2D"]
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_qe2fe")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oewui")
+animation = &"off"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-15, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f85v")
+
+[node name="time" type="Label" parent="."]
+offset_left = -807.143
+offset_top = -94.1429
+offset_right = -556.143
+offset_bottom = 94.8571
+theme_override_font_sizes/font_size = 100
+text = "6:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AM" type="Label" parent="."]
+offset_left = -575.714
+offset_top = 2.85714
+offset_right = -519.714
+offset_bottom = 47.8571
+theme_override_font_sizes/font_size = 30
+text = "AM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]

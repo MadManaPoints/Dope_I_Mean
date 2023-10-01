@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpwsqlyws1eqw"]
+[gd_scene load_steps=6 format=3 uid="uid://bpwsqlyws1eqw"]
 
 [ext_resource type="Script" path="res://alarm_clock.gd" id="1_8627p"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_tmyes"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_lmbl1"]
+[ext_resource type="Texture2D" uid="uid://dvntt8w62w3d6" path="res://assets/blank_screen.png" id="4_g7ocp"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="4_sglyh"]
 
 [node name="alarm_clock" type="Node2D"]
@@ -20,15 +21,20 @@ rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_lmbl1")
 
+[node name="blank_screen" type="Sprite2D" parent="."]
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+position = Vector2(956, 524)
+texture = ExtResource("4_g7ocp")
+
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 
 [node name="text" type="Label" parent="."]
-offset_left = 560.0
+offset_left = 550.0
 offset_top = 215.0
-offset_right = 1363.0
+offset_right = 1353.0
 offset_bottom = 287.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.937255, 0.482353, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "WAKE UP"
 horizontal_alignment = 1
@@ -41,23 +47,23 @@ offset_left = -3.0
 offset_top = 238.0
 offset_right = 1919.0
 offset_bottom = 836.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.937255, 0.482353, 0, 1)
 theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="get_up" type="Button" parent="."]
-offset_left = 755.0
+offset_left = 748.0
 offset_top = 405.0
-offset_right = 1173.0
+offset_right = 1166.0
 offset_bottom = 524.0
 theme_override_font_sizes/font_size = 50
 text = "STOP"
 
 [node name="dont_get_up" type="Button" parent="."]
-offset_left = 753.0
+offset_left = 746.0
 offset_top = 596.0
-offset_right = 1174.0
+offset_right = 1167.0
 offset_bottom = 715.0
 theme_override_font_sizes/font_size = 50
 text = "SNOOZE"
@@ -66,6 +72,16 @@ text = "SNOOZE"
 position = Vector2(957, 540)
 texture = ExtResource("4_sglyh")
 metadata/_edit_lock_ = true
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_tmyes")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2325, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_tmyes")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="get_up" to="." method="_on_get_up_pressed"]
