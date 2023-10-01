@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-
+@onready var tap = $tap_controls
+@onready var tap_text = $tap_controls/text
 var gravity
 
-
 func _ready():
+	tap_text.text = "Jump"
 	velocity = Vector2(0, 0)
 	
 	if round_two.items_in_cart > 11:
@@ -24,7 +25,7 @@ func _process(delta):
 	velocity += gravity * delta
 
 	
-	if is_on_floor() and Input.is_action_just_pressed("mouse_left"):
+	if is_on_floor() and Input.is_action_just_pressed("mouse_left") and tap.inside == true:
 		velocity.y -= 500
 		
 	if velocity.y < 0:

@@ -1,5 +1,8 @@
 extends Node2D
 
+
+@onready var tap = $tap_controls
+@onready var tap_text = $tap_controls/text
 @onready var score = $score
 @onready var arm = $arm
 @onready var may = $may
@@ -24,6 +27,7 @@ var done = false
 
 
 func _ready():
+	tap_text.text = "Grab"
 	may.play("High")
 	arm.play("Open")
 	arm.position = Vector2(1003, 1465)
@@ -40,6 +44,7 @@ func _process(delta):
 	if turbo_mode == false:
 		eat_chips()
 	else:
+		tap_text.text = "RESIST"
 		resist_chips()
 
 	if num_left <= 0:
@@ -66,7 +71,7 @@ func eat_chips():
 		may.play("High")
 
 
-	if take_chip == false and Input.is_action_just_pressed("mouse_left"):
+	if take_chip == false and tap.inside == true and Input.is_action_just_pressed("mouse_left"):
 		eat = true
 	
 	if num_left < 21:
@@ -80,13 +85,13 @@ func resist_chips():
 	if take_chip == false:
 		velocity = turbo_speed
 		sub_speed_reverse = turbo_speed * turbo_switch
-		if Input.is_action_just_pressed("mouse_left") and done == false:
+		if Input.is_action_just_pressed("mouse_left") and tap.inside == true and done == false:
 			turbo_speed += sub_speed
 	elif take_chip == true:
 		arm.play("Closed")
 		velocity = sub_speed_reverse
 		turbo_speed = sub_speed_reverse * turbo_switch
-		if Input.is_action_just_pressed("mouse_left") and done == false:
+		if Input.is_action_just_pressed("mouse_left") and tap.inside == true and done == false:
 			sub_speed_reverse -= sub_speed
 			
 	if velocity.y > -8 and velocity.y < 8:

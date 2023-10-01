@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var tap = $tap_controls
+@onready var tap_text = $tap_controls/text
 @onready var sheep_scene = preload("res://sheep.tscn")
 @onready var spawn : Marker2D = $spawn
 @onready var right_spawn : Marker2D = $right_spawn
@@ -25,6 +27,7 @@ func _ready():
 	sheep_1.hide()
 	sheep_2.hide()
 	sheep_3.hide()
+	tap_text.text = "+1"
 
 
 func _process(delta):
@@ -82,13 +85,10 @@ func first_time():
 func score_tally():
 	$score_total.set_text("Sheep: " + str(score))
 	$score_total.get_text()
-	
-	if Input.is_action_just_pressed("mouse_left"):
+
+
+	if tap.inside == true and Input.is_action_just_pressed("mouse_left"):
 		score += 1
-	if Input.is_action_just_pressed("mouse_right"):
-		score -= 1
-	if score < 0:
-		score = 0
 
 
 func counting_sheep():

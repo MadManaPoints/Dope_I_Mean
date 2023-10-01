@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hxgvlrt0d0n0"]
+[gd_scene load_steps=14 format=3 uid="uid://hxgvlrt0d0n0"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_bbes5"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_2peqn"]
@@ -9,6 +9,22 @@
 [ext_resource type="PackedScene" uid="uid://cdqo4qas1r640" path="res://towers/tower_spot.tscn" id="6_6svs7"]
 [ext_resource type="Script" path="res://towers/mental_strength.gd" id="7_q2mb2"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="9_qp0kc"]
+[ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="10_1o3y8"]
+[ext_resource type="Script" path="res://tap_controls.gd" id="10_pdrid"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1o3y8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tjip"]
+radius = 100.975
 
 [node name="tower_defense" type="Node2D"]
 
@@ -72,6 +88,31 @@ theme_override_font_sizes/font_size = 35
 text = "Medium"
 script = ExtResource("7_q2mb2")
 
+[node name="tap_controls" type="CanvasLayer" parent="score"]
+offset = Vector2(700, 955)
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 700, 955)
+script = ExtResource("10_pdrid")
+
+[node name="button" type="AnimatedSprite2D" parent="score/tap_controls"]
+sprite_frames = SubResource("SpriteFrames_vu3mm")
+
+[node name="detection" type="Area2D" parent="score/tap_controls/button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="score/tap_controls/button/detection"]
+shape = SubResource("CircleShape2D_5tjip")
+
+[node name="text" type="Label" parent="score/tap_controls"]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 85.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 30
+text = "Sample"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Label" type="Label" parent="."]
 offset_left = 596.0
 offset_top = 39.0
@@ -84,3 +125,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="timeout" from="path_spawner/Timer" to="path_spawner" method="_on_timer_timeout"]
+[connection signal="mouse_entered" from="score/tap_controls/button/detection" to="score" method="_on_detection_mouse_entered"]
+[connection signal="mouse_entered" from="score/tap_controls/button/detection" to="score/tap_controls" method="_on_detection_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="score/tap_controls/button/detection" to="score" method="_on_detection_mouse_exited"]
+[connection signal="mouse_exited" from="score/tap_controls/button/detection" to="score/tap_controls" method="_on_detection_mouse_exited" flags=18]

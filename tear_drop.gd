@@ -10,7 +10,6 @@ func _ready():
 
 func _process(delta):
 	cry(delta)
-	next_level()
 	
 func cry(delta):
 	visible = false
@@ -22,8 +21,9 @@ func cry(delta):
 		await tween.finished
 		position += velocity * delta
 		velocity += acceleration
+		change_scene()
 		
-func next_level():
+		
+func change_scene():
 	if position.y > 1100:
-		queue_free()
 		get_tree().change_scene_to_file("res://catch_game.tscn")

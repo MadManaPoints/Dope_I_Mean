@@ -109,7 +109,7 @@ shape = SubResource("CapsuleShape2D_46pip")
 position = Vector2(-1.5, 3)
 scale = Vector2(0.519531, 0.519531)
 sprite_frames = SubResource("SpriteFrames_unugl")
-animation = &"spin"
+animation = &"Idle"
 speed_scale = 2.0
 
 [node name="tear_anim" type="AnimatedSprite2D" parent="CollisionShape2D"]

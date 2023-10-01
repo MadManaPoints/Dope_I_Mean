@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm2jcr6gw03rx"]
+[gd_scene load_steps=9 format=3 uid="uid://bm2jcr6gw03rx"]
 
 [ext_resource type="Script" path="res://flowers.gd" id="1_1k6ek"]
-[ext_resource type="Texture2D" uid="uid://wjw8qhhl1f7l" path="res://assets/heart_icon.png" id="1_a0pvo"]
+[ext_resource type="Texture2D" uid="uid://cw3vl06hp4eqd" path="res://assets/sunflowers.png" id="2_sth36"]
+[ext_resource type="Script" path="res://tap_controls.gd" id="3_78uen"]
+[ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="4_tsbec"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gsaur"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_a0pvo")
+"texture": ExtResource("2_sth36")
 }],
 "loop": true,
 "name": &"default",
@@ -18,11 +20,54 @@ animations = [{
 radius = 75.0
 height = 210.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tsbec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tjip"]
+radius = 100.975
+
 [node name="flowers" type="CharacterBody2D"]
 script = ExtResource("1_1k6ek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-20, -25)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gsaur")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_w720x")
+
+[node name="tap_controls" type="CanvasLayer" parent="."]
+offset = Vector2(1150, 780)
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 1150, 780)
+script = ExtResource("3_78uen")
+
+[node name="button" type="AnimatedSprite2D" parent="tap_controls"]
+sprite_frames = SubResource("SpriteFrames_vu3mm")
+
+[node name="detection" type="Area2D" parent="tap_controls/button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tap_controls/button/detection"]
+shape = SubResource("CircleShape2D_5tjip")
+
+[node name="text" type="Label" parent="tap_controls"]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 85.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+text = "Sample"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="tap_controls/button/detection" to="tap_controls" method="_on_detection_mouse_entered" flags=18]
+[connection signal="mouse_exited" from="tap_controls/button/detection" to="tap_controls" method="_on_detection_mouse_exited" flags=18]

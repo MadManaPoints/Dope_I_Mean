@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b54aikswnelg3"]
+[gd_scene load_steps=25 format=3 uid="uid://b54aikswnelg3"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_13s5r"]
 [ext_resource type="Script" path="res://farm_sim.gd" id="1_jssvd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctrwms62r3umt" path="res://assets/rpg/farm_glow_fin.png" id="4_iankd"]
 [ext_resource type="Script" path="res://weed_glow.gd" id="5_jt0yw"]
 [ext_resource type="Texture2D" uid="uid://dkr76f64qfioy" path="res://assets/rpg/weed.png" id="8_pgnjp"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="9_uw33a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_56jn1"]
 texture = ExtResource("3_ncbks")
@@ -347,6 +348,11 @@ format = 2
 layer_0/tile_data = PackedInt32Array(393239, 589824, 8)
 script = ExtResource("5_jt0yw")
 
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(962, 540)
+scale = Vector2(1.11852, 1)
+texture = ExtResource("9_uw33a")
+
 [node name="black_screen_two" type="Sprite2D" parent="."]
 position = Vector2(1017.5, 493.5)
 scale = Vector2(2.35469, 3.18796)
@@ -360,6 +366,7 @@ limit_left = 555
 limit_top = 0
 limit_right = 1920
 limit_bottom = 1080
+limit_smoothed = true
 
 [node name="weed_detection" type="Area2D" parent="."]
 
@@ -368,7 +375,7 @@ position = Vector2(1128, 314)
 shape = SubResource("CapsuleShape2D_ntim1")
 
 [node name="weed" type="Sprite2D" parent="."]
-position = Vector2(1126, 234)
+position = Vector2(960, 475)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_pgnjp")
 

@@ -9,6 +9,8 @@ var skull_end = false
 var coin_end = false
 var toilet_end = false 
 
+var lever = false
+
 @onready var outfits = $outfit_background
 @onready var outfit_anim = $outfit_background/outfits
 @onready var chest = $chest
@@ -33,7 +35,7 @@ func _ready():
 func _process(_delta):
 	skin.text = "New Skin Unlocked! "
 	coins.text = str(coins_left)
-	if Input.is_action_just_pressed("mouse_left") and coins_left > 0 and can_click == true:
+	if Input.is_action_just_pressed("mouse_left") and coins_left > 0 and can_click == true and lever == true:
 		can_click = false
 		subtract = true
 		skull = false
@@ -190,3 +192,11 @@ func select_outfit():
 			outfit_anim.play("Outfit_1")
 		await outfit_anim.animation
 		can_click = true
+
+
+func _on_area_2d_mouse_entered():
+	lever = true
+
+
+func _on_area_2d_mouse_exited():
+	lever = false

@@ -1,14 +1,12 @@
 extends CharacterBody2D
 
 
+@onready var face = $CollisionShape2D/AnimatedSprite2D
 var left_boundary = 635
 var right_boundary = 1290
 var top_boundary = 75
 var bottom_boundary = 1005
 var score = -5 
-
-func _ready():
-	pass 
 
 
 func _process(_delta):
@@ -24,4 +22,7 @@ func _process(_delta):
 	if position.y > bottom_boundary:
 		position.y = bottom_boundary
 
-
+	if score >= 0:
+		face.play("Smile")
+	else:
+		face.play("Frown")

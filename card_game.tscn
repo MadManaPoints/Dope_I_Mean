@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cvdxtsc3m7lex"]
+[gd_scene load_steps=24 format=3 uid="uid://cvdxtsc3m7lex"]
 
 [ext_resource type="Script" path="res://card_game.gd" id="1_f2fnt"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rn86q"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cqnw6i0mbk5a3" path="res://assets/tear.png" id="16_4hucc"]
 [ext_resource type="Script" path="res://tear_drop.gd" id="17_j7bxq"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="19_nk72x"]
+[ext_resource type="Texture2D" uid="uid://mii6gbmjidvh" path="res://assets/cards/red_joker.png" id="20_vltko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_secyv"]
 size = Vector2(121.5, 180)
@@ -137,6 +138,11 @@ position = Vector2(1230, 752)
 
 [node name="new_king" type="Marker2D" parent="."]
 position = Vector2(885, 452)
+
+[node name="joker" type="Sprite2D" parent="."]
+position = Vector2(1059, 453)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("20_vltko")
 
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)

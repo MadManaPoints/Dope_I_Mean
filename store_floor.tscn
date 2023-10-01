@@ -22,7 +22,8 @@ size = Vector2(1195, 781)
 [node name="store_floor" type="Node2D"]
 
 [node name="moving_floor" type="Sprite2D" parent="."]
-position = Vector2(8001, 855)
+modulate = Color(0.6, 0.6, 0.6, 1)
+position = Vector2(8001, 914)
 texture = ExtResource("1_yn1aj")
 script = ExtResource("2_8ts01")
 

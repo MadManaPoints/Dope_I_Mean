@@ -16,12 +16,13 @@ func _ready():
 	var timer = get_tree().create_timer(.5)
 	await timer.timeout
 	buffer = true
+	
 
 func _process(_delta):
 	if alpha == false:
 		rect.modulate.a -= 0.01
-		if rect.modulate.a <= .75:
-			rect.modulate.a = .75
+		if rect.modulate.a <= .5:
+			rect.modulate.a = .5
 
 	if alpha == true:
 		rect.modulate.a += 0.01

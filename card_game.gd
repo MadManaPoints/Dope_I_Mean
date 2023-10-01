@@ -4,12 +4,14 @@ extends Node2D
 @onready var drops_scene = preload("res://coin.tscn")
 @onready var six_stop : Marker2D = $new_six
 @onready var king_stop : Marker2D = $new_king
+@onready var joker = $joker
+@onready var joker_back = $staying_cards/joker_back
 
 var sad = false
 
 
 func _ready():
-	pass
+	joker.hide()
 
 
 func _process(_delta):
@@ -43,6 +45,8 @@ func new_king_pos():
 	var king_pos = $king
 	if king_pos.up_next == true and Input.is_action_pressed("mouse_left") and king_pos.can_grab == true:
 		king_pos.position = king_stop.position
+		joker_back.hide()
+		joker.show()
 		sad = true
 		
 func crying():

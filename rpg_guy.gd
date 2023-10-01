@@ -20,13 +20,14 @@ func _physics_process(_delta):
 		move()
 	else:
 		round_two.black_screen = true
+		self.position = Vector2(960, 540)
+		var timer = get_tree().create_timer(.25)
+		await timer.timeout
 		var tween = get_tree().create_tween().set_parallel()
 		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(camera, "limit_right", 3000, 0)
+		tween.tween_property(camera, "limit_left", -1000, 0)
 		tween.tween_property(camera, "zoom", zoom_in_max, 4)
-		tween.tween_property(camera, "limit_left", -2500, 6)
-		tween.tween_property(camera, "limit_right", 2500, 6)
-		tween.tween_property(camera, "limit_top", -2500, 6)
-		tween.tween_property(camera, "limit_bottom", 2500, 6)
 		await tween.finished
 		change_scene()
 	borders()

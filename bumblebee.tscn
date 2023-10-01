@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bitrs5euj3gu6"]
+[gd_scene load_steps=18 format=3 uid="uid://bitrs5euj3gu6"]
 
 [ext_resource type="Script" path="res://bumblebee.gd" id="1_f10bi"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jw2kx"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_dxbra"]
 [ext_resource type="Texture2D" uid="uid://c6vetj2y42k5f" path="res://assets/og_bee.png" id="3_acdm8"]
 [ext_resource type="PackedScene" uid="uid://bm2jcr6gw03rx" path="res://flowers.tscn" id="4_oq5rx"]
+[ext_resource type="Texture2D" uid="uid://c17y0nxrvj2wk" path="res://assets/bee_bg.png" id="4_wqx24"]
 [ext_resource type="Texture2D" uid="uid://dld0fddfi7klb" path="res://assets/rec/rec_button_0.png" id="5_ra3kk"]
 [ext_resource type="Texture2D" uid="uid://c5ncsgxepjs36" path="res://assets/rec/rec_button_1.png" id="6_jmd4x"]
 [ext_resource type="Texture2D" uid="uid://3rxwiyy8tg4u" path="res://assets/rec/rec_button_2.png" id="7_q1i35"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bis52vy8flgg0" path="res://assets/rec/rec_button_5.png" id="10_ry73w"]
 [ext_resource type="Texture2D" uid="uid://b6a6naxdl06c7" path="res://assets/rec/rec_button_6.png" id="11_f0ots"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="13_6arry"]
+[ext_resource type="Texture2D" uid="uid://bj13o2bkqak33" path="res://assets/sign.png" id="15_8mk3m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sswgr"]
 radius = 62.0
@@ -97,19 +99,30 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_dxbra")
 metadata/_edit_lock_ = true
 
-[node name="OgBee" type="Sprite2D" parent="."]
-position = Vector2(880, 319)
+[node name="bee_bg" type="Sprite2D" parent="."]
+position = Vector2(1253, 290)
+scale = Vector2(1.89216, 1.89216)
+texture = ExtResource("4_wqx24")
+
+[node name="og_bee" type="Sprite2D" parent="."]
+position = Vector2(879, 342)
 texture = ExtResource("3_acdm8")
 
-[node name="detection" type="Area2D" parent="OgBee"]
+[node name="sign" type="Sprite2D" parent="og_bee"]
+position = Vector2(-1, 70)
+rotation = -0.0349066
+scale = Vector2(0.4325, 0.4325)
+texture = ExtResource("15_8mk3m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OgBee/detection"]
+[node name="detection" type="Area2D" parent="og_bee"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="og_bee/detection"]
 position = Vector2(-2, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_sswgr")
 
 [node name="flowers" parent="." instance=ExtResource("4_oq5rx")]
-position = Vector2(1205, 904)
+position = Vector2(1190, 904)
 
 [node name="rect" type="Sprite2D" parent="."]
 position = Vector2(969, 1418)
@@ -126,10 +139,20 @@ wait_time = 3.0
 [node name="timer_2" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_jw2kx")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2325, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_jw2kx")
+
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("13_6arry")
 
-[connection signal="body_entered" from="OgBee/detection" to="." method="_on_detection_body_entered"]
+[connection signal="body_entered" from="og_bee/detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="timer_1" to="." method="_on_timer_1_timeout"]
 [connection signal="timeout" from="timer_2" to="." method="_on_timer_2_timeout"]

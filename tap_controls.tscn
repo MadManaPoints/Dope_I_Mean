@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://nwmmdqse71g4"]
+
+[ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="1_4j08b"]
+[ext_resource type="Script" path="res://tap_controls.gd" id="1_q7w33"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4j08b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5tjip"]
+radius = 100.975
+
+[node name="tap_controls" type="CanvasLayer"]
+script = ExtResource("1_q7w33")
+
+[node name="button" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vu3mm")
+
+[node name="detection" type="Area2D" parent="button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button/detection"]
+shape = SubResource("CircleShape2D_5tjip")
+
+[node name="text" type="Label" parent="."]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 85.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+text = "Sample"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="button/detection" to="." method="_on_detection_mouse_entered"]
+[connection signal="mouse_exited" from="button/detection" to="." method="_on_detection_mouse_exited"]

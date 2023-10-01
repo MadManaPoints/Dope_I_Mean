@@ -7,7 +7,7 @@ func _ready():
 
 
 func _process(_delta):
-	if Input.is_action_just_pressed("mouse_right"):
+	if round_two.tower_destroy == true:
 		delete_children(self)
 
 

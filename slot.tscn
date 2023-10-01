@@ -110,4 +110,4 @@ animations = [{
 
 [node name="slot" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_fo65u")
-animation = &"Coin_Down"
+animation = &"Coin"

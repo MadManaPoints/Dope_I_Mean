@@ -35,3 +35,5 @@ var item_12 = false
 
 var item
 var wish_time = false
+
+var tower_destroy = false

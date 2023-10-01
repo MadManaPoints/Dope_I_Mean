@@ -51,12 +51,12 @@ theme_override_font_sizes/font_size = 30
 text = "SWIPE RIGHT <3"
 
 [node name="left_black_screen" type="Sprite2D" parent="."]
-position = Vector2(-408, 516)
+position = Vector2(-405, 516)
 scale = Vector2(1, 1.18333)
 texture = ExtResource("1_rv30k")
 
 [node name="right_black_screen" type="Sprite2D" parent="."]
-position = Vector2(2326, 568.5)
+position = Vector2(2323, 568.5)
 scale = Vector2(1, 1.16019)
 texture = ExtResource("1_rv30k")
 
