@@ -1,13 +1,139 @@
-[gd_scene load_steps=7 format=3 uid="uid://qs8pktqk6aps"]
+[gd_scene load_steps=24 format=3 uid="uid://qs8pktqk6aps"]
 
+[ext_resource type="Script" path="res://visual_novel.gd" id="1_7dj3p"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_yiqnp"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_o7igo"]
 [ext_resource type="Texture2D" uid="uid://cby8c0vnsxou5" path="res://assets/Visual Novel/hallway.png" id="3_7g752"]
 [ext_resource type="Texture2D" uid="uid://b3r2xx4mybtsi" path="res://assets/Visual Novel/Formal/Aiko_formal_smile_blush.png" id="4_e1pya"]
-[ext_resource type="PackedScene" uid="uid://cio4itacbw6xa" path="res://dialogue.tscn" id="5_6oh5m"]
+[ext_resource type="Texture2D" uid="uid://c12v3dvf300m" path="res://assets/Visual Novel/gym.png" id="4_qb7rb"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="6_1amd3"]
+[ext_resource type="Texture2D" uid="uid://86u0dnnvcv3v" path="res://assets/Visual Novel/Aiko_Full/Aiko_Full_Smile_Blush.png" id="6_fkqdv"]
+[ext_resource type="Texture2D" uid="uid://cpx82difh1shq" path="res://assets/Visual Novel/roof.png" id="6_xb1bn"]
+[ext_resource type="Texture2D" uid="uid://s3o7y67fpg8s" path="res://assets/Visual Novel/Casual/Aiko_Smile.png" id="7_mwoal"]
+[ext_resource type="Texture2D" uid="uid://imkohv7h4qx6" path="res://assets/Visual Novel/Gym/Ponytail/Aiko_Gym_Pony_Smile_Blush.png" id="8_70dn5"]
+[ext_resource type="Texture2D" uid="uid://dad47cdla7jvs" path="res://assets/Visual Novel/Formal/Aiko_formal_smile.png" id="9_gyc6c"]
+[ext_resource type="Texture2D" uid="uid://ddltqhwxdo78a" path="res://assets/Visual Novel/Formal/Aiko_formal_frown.png" id="10_q7bh3"]
+[ext_resource type="Script" path="res://VN_dialogue_box.gd" id="11_tjqev"]
+[ext_resource type="Texture2D" uid="uid://dqerog6yc00g5" path="res://assets/Visual Novel/Gym/Ponytail/Aiko_Gym_Pony_Frown.png" id="11_uhxm6"]
+[ext_resource type="Texture2D" uid="uid://cfub4kxvs41y8" path="res://assets/Visual Novel/Exports/Dialogue/DialogueContainer.png" id="12_5p2ns"]
+[ext_resource type="Texture2D" uid="uid://dyelrjvw2k8a4" path="res://assets/Visual Novel/Gym/Ponytail/Aiko_Gym_Pony_Shout.png" id="12_fp32f"]
+[ext_resource type="Texture2D" uid="uid://difhqklmbir06" path="res://assets/Visual Novel/Exports/NextBtnPressed.png" id="13_qpg5r"]
+[ext_resource type="Texture2D" uid="uid://dcggomuvwbwbc" path="res://assets/Visual Novel/Aiko_Full/Aiko_Full_Open.png" id="14_rns02"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljnp3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e1pya")
+}],
+"loop": true,
+"name": &"blush",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_70dn5")
+}],
+"loop": true,
+"name": &"bye",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mwoal")
+}],
+"loop": true,
+"name": &"casual",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_gyc6c")
+}],
+"loop": true,
+"name": &"formal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_q7bh3")
+}],
+"loop": true,
+"name": &"frown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fkqdv")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_uhxm6")
+}],
+"loop": true,
+"name": &"gym",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_fp32f")
+}],
+"loop": true,
+"name": &"shout",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_rns02")
+}],
+"loop": false,
+"name": &"whatever",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hqcwg"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(680, 196), Vector2(680, 210)]
+}
+
+[sub_resource type="Animation" id="Animation_8o4hs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(758, 196)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgifk"]
+_data = {
+"Idle": SubResource("Animation_hqcwg"),
+"RESET": SubResource("Animation_8o4hs")
+}
 
 [node name="visual_novel" type="Node2D"]
+script = ExtResource("1_7dj3p")
 
 [node name="black_screen" type="Sprite2D" parent="."]
 position = Vector2(947, 537)
@@ -20,21 +146,108 @@ rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_o7igo")
 
-[node name="Hallway" type="Sprite2D" parent="."]
+[node name="hallway" type="Sprite2D" parent="."]
 position = Vector2(974.667, 539)
 scale = Vector2(1.33333, 1.33333)
 texture = ExtResource("3_7g752")
 
-[node name="AikoFormalSmileBlush" type="Sprite2D" parent="."]
-position = Vector2(1222, 709)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_e1pya")
+[node name="gym" type="Sprite2D" parent="."]
+position = Vector2(1535, 534)
+scale = Vector2(1.59297, 1.59297)
+texture = ExtResource("4_qb7rb")
 
-[node name="Control" parent="." instance=ExtResource("5_6oh5m")]
+[node name="roof" type="Sprite2D" parent="."]
+position = Vector2(1247, 546)
+scale = Vector2(1.43611, 1.43611)
+texture = ExtResource("6_xb1bn")
+
+[node name="aiko" type="AnimatedSprite2D" parent="."]
+position = Vector2(1152, 725)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ljnp3")
+animation = &"bye"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 960.0
 offset_top = 1113.0
 offset_right = 960.0
 offset_bottom = 1113.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dialogue_box" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -371.0
+offset_top = -343.0
+offset_right = 360.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("11_tjqev")
+
+[node name="TextureRect" type="TextureRect" parent="Control/dialogue_box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_5p2ns")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="text" type="RichTextLabel" parent="Control/dialogue_box"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "Hello, this is the placeholder dialogue that does nothing. But I have to write enought to wrap the text around the box  to make sure it works. "
+metadata/_edit_lock_ = true
+
+[node name="NextBtnPressed" type="Sprite2D" parent="Control/dialogue_box"]
+position = Vector2(758, 196)
+scale = Vector2(0.709302, 0.709302)
+texture = ExtResource("13_qpg5r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control/dialogue_box/NextBtnPressed"]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_fgifk")
+}
+
+[node name="yes" type="Button" parent="Control/dialogue_box"]
+layout_mode = 0
+offset_left = 264.0
+offset_top = -352.0
+offset_right = 474.0
+offset_bottom = -288.0
+text = "YES"
+
+[node name="no" type="Button" parent="Control/dialogue_box"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = -252.0
+offset_right = 475.0
+offset_bottom = -189.0
+text = "NO"
 
 [node name="left_black_screen" type="Sprite2D" parent="."]
 position = Vector2(-405, 516)
@@ -49,3 +262,12 @@ texture = ExtResource("1_yiqnp")
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("6_1amd3")
+
+[node name="fade" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959, 534)
+scale = Vector2(1.01563, 1.02222)
+texture = ExtResource("1_yiqnp")
+
+[connection signal="pressed" from="Control/dialogue_box/yes" to="Control/dialogue_box" method="_on_yes_pressed" flags=18]
+[connection signal="pressed" from="Control/dialogue_box/no" to="Control/dialogue_box" method="_on_no_pressed" flags=18]

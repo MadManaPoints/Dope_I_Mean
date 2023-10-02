@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var anim = $AnimatedSprite2D
 var speed = 150
 var new_position = Vector2(0, 0)
+var can_move = true
 
 func _ready():
 	anim.play("Idle")
@@ -12,8 +13,11 @@ func _ready():
 
 
 func _process(_delta):
-	move()
-	walking_animations()
+	if can_move == true:
+		move()
+		walking_animations()
+	else:
+		anim.play("Idle")
 	borders()
 
 
