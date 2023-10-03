@@ -1,13 +1,16 @@
 extends Node2D
 
+
 var convo_one = false
 var convo_two = false
 var convo_three = false 
+
 
 var leaving = false
 @onready var leave = $Area2D/leave
 @onready var button_one = $Area2D/yes
 @onready var button_two = $Area2D/no
+
 
 @onready var cycle_text = $CanvasLayer/rpg_dialogue_box/text
 @onready var dialogue_box = $CanvasLayer/rpg_dialogue_box
@@ -29,26 +32,27 @@ var dialogue_index = 0
 
 var hunter_text = false
 var hunter_array = ["I never intended it to go down like that.",
-					"I had no choice. But I'm so, so sorry.",
-					".........................................................................................................................................................................................................................",
+					"I had no choice. But I'm sorry. I'm so, so sorry.",
+					".............................................................................................................................................................................................................................................................................",
 					"..................................................",
-					"he..................................................................................................................................................................brother-in-arms ....................................................... miss him dearly.",
+					".................................he..................................................................................................................................................................brother-in-arms ....................................................... miss him dearly.",
 					".................................stupid son of a ...............",
 					"..................flee .............................. grave ................................................................................... leave.",
 					"................................................................................................................................................................................. the pub to my left and up the road.",]
 
 var bartender_text = false
-var bartender_array = ["My son ................................................................................................................................................................ my son .....................................",
-						"....................... hard headded ................................................................................................ now what?",
+var bartender_array = ["My son .......................................... my son .....................................",
+						"....................... hard-headded .........................................................",
+						"........................................................................................................................................................................................................................................................................................................ now what?",
 						".............................................. but I had to close the pub. ........................................ to ...................................................",
 						".................................... not until ......................................................................cemetary."]
 
 var gravedigger_text = false
 var gravedigger_array = ["Traveler, you're here for information, are you not?",
-						"I can help you, but first ...........................",
+						"I can help you, but first .........................................................................................................................",
 						".......................................................................................................................................................................................................................................................................................",
 						"........................",
-						".....................!!.................................................",
+						".....................!!......................................................................................................................................................................................",
 						".... head north .................................... reward ...............................................",]
 
 
@@ -68,6 +72,9 @@ func _process(_delta):
 	else:
 		end_sentence = false
 
+	if Input.is_action_just_pressed("mouse_left") and end_sentence == true:
+		dialogue_index += 1
+		load_dialogue()
 
 	if show_text == true:
 		load_dialogue()
@@ -82,32 +89,31 @@ func _process(_delta):
 		move_player.can_move = true
 
 func load_dialogue():
+	cycle_text.visible_ratio= 0
 	if hunter_text == true:
 		if dialogue_index < hunter_array.size():
 			cycle_text.bbcode_text = hunter_array[dialogue_index]
 		else:
 			convo_one = true
+			show_text = false
 	elif bartender_text == true:
 		if dialogue_index < bartender_array.size():
 			cycle_text.bbcode_text = bartender_array[dialogue_index]
 		else:
 			convo_two = true
+			show_text = false
 	elif gravedigger_text == true:
 		if dialogue_index < gravedigger_array.size():
 			cycle_text.bbcode_text = gravedigger_array[dialogue_index]
 		else:
+			convo_three = true
 			show_text = false
-	text_roll()
-
-func text_roll():
+	
 	dialogue_box.show()
-	cycle_text.visible_ratio = 0
 	var tween = get_tree().create_tween()
-	tween.set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property(cycle_text, "visible_ratio", 1.1, 1.5)
+	tween.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property(cycle_text, "visible_ratio", 1.1, 1)
 	await tween.finished
-	if Input.is_action_just_pressed("mouse_left") and end_sentence == true:
-		dialogue_index += 1
 
 
 func _on_digger_detection_body_entered(body):

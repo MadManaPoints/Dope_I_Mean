@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx3iyd5xr4yya"]
+
+[ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_3h2a2"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_37bcm"]
+[ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_qklvf"]
+[ext_resource type="Texture2D" uid="uid://djuxst532wff5" path="res://assets/title_screen.png" id="3_i3otr"]
+[ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="4_fqmtw"]
+[ext_resource type="Texture2D" uid="uid://bre8sh57lifvc" path="res://assets/title_screen_2.png" id="4_n4p8n"]
+
+[node name="title_screen" type="Node2D"]
+script = ExtResource("1_37bcm")
+
+[node name="black_screen" type="Sprite2D" parent="."]
+position = Vector2(947, 537)
+scale = Vector2(1.04688, 1.06296)
+texture = ExtResource("1_3h2a2")
+metadata/_edit_lock_ = true
+
+[node name="white_phone_screen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_qklvf")
+metadata/_edit_lock_ = true
+
+[node name="title_2" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
+position = Vector2(959, 551)
+texture = ExtResource("4_n4p8n")
+
+[node name="title" type="Sprite2D" parent="."]
+position = Vector2(959, 540)
+texture = ExtResource("3_i3otr")
+
+[node name="left_black_screen" type="Sprite2D" parent="."]
+position = Vector2(-401, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_3h2a2")
+
+[node name="right_black_screen" type="Sprite2D" parent="."]
+position = Vector2(2316, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_3h2a2")
+
+[node name="frame" type="Sprite2D" parent="."]
+position = Vector2(957, 540)
+texture = ExtResource("4_fqmtw")
+metadata/_edit_lock_ = true

@@ -508,7 +508,7 @@ size = Vector2(93, 49)
 size = Vector2(27, 238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_av4cp"]
-size = Vector2(98, 48)
+size = Vector2(98, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yg0on"]
 size = Vector2(20, 231.5)
@@ -526,7 +526,7 @@ size = Vector2(82, 35)
 size = Vector2(41, 46.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyvnk"]
-size = Vector2(46, 39)
+size = Vector2(46, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6he0n"]
 size = Vector2(75, 50)
@@ -614,7 +614,7 @@ position = Vector2(-588.5, -34)
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gravedigger/digger_detection"]
-position = Vector2(1178, 74)
+position = Vector2(1177, 72)
 shape = SubResource("CircleShape2D_07xr6")
 
 [node name="bartender" type="CharacterBody2D" parent="."]
@@ -756,7 +756,7 @@ shape = SubResource("RectangleShape2D_f5voc")
 [node name="StaticBody2D13" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
-position = Vector2(1297, 264)
+position = Vector2(1297, 264.5)
 shape = SubResource("RectangleShape2D_av4cp")
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="."]
@@ -792,7 +792,7 @@ shape = SubResource("RectangleShape2D_827n2")
 [node name="StaticBody2D19" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D19"]
-position = Vector2(1226, 174.5)
+position = Vector2(1226, 171.5)
 shape = SubResource("RectangleShape2D_yyvnk")
 
 [node name="StaticBody2D20" type="StaticBody2D" parent="."]
@@ -839,9 +839,9 @@ position = Vector2(944, 17)
 shape = SubResource("RectangleShape2D_qhl32")
 
 [node name="leave" type="Label" parent="Area2D"]
-offset_left = 851.0
+offset_left = 841.0
 offset_top = 327.0
-offset_right = 1055.0
+offset_right = 1045.0
 offset_bottom = 431.0
 theme_override_font_sizes/font_size = 50
 text = "Leave?"
