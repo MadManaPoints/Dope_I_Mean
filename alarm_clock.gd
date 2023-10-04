@@ -41,6 +41,8 @@ func _on_get_up_pressed():
 	if round_two.no_snooze == true:
 		get_tree().change_scene_to_file("res://bumblebee.tscn")
 	else:
+		if round_two.triple_snooze == true:
+			round_two.battery_percent -= 2
 		get_tree().change_scene_to_file("res://visual_novel.tscn")
 
 

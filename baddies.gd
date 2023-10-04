@@ -1,8 +1,16 @@
 extends Node2D
 
+
+@onready var right_button = $right
+@onready var left_button = $left
+@onready var swipe_right_text = $swipe_right_text
+@onready var swipe_left_text = $swipe_left_text
+
 var photo_num = 0
 var left = false
 var right = false
+var can_swipe_right = false
+var can_swipe_left = false
 
 
 func _ready():
@@ -10,6 +18,7 @@ func _ready():
 	$naveah.hide()
 	$alex.hide()
 	$pinki.hide()
+	round_two.dark_battery = true
 
 
 func _process(delta):
@@ -54,28 +63,67 @@ func cycle_photos(delta):
 		$alex.hide()
 		
 		if round_two.no_snooze == true:
-			$swipe_left.text = "I know"
-			$swipe_right.text = "No, I won't"
+			$swipe_left_text.text = "I know"
+			$swipe_right_text.text = "No, I won't"
 		else:
-			$swipe_left.text = "Probably"
-			$swipe_right.text = "Maybe"
+			$swipe_left_text.text = "Probably"
+			$swipe_right_text.text = "Maybe"
+			
+	if can_swipe_left == true:
+		if Input.is_action_pressed("mouse_left"):
+			left_button.play("clicked")
+		
+	if Input.is_action_just_released("mouse_left"):
+		left_button.play("unclicked")
+		
+	if can_swipe_right == true:
+		if Input.is_action_pressed("mouse_left"):
+			right_button.play("clicked")
+		
+	if Input.is_action_just_released("mouse_left"):
+		right_button.play("unclicked")
 
-
-func _on_swipe_left_pressed():
+	if can_swipe_left == true and Input.is_action_just_released("mouse_left"):
+		swipe_left()
+	
+	if can_swipe_right == true and Input.is_action_just_released("mouse_left"):
+		swipe_right()
+	
+func swipe_left():
 	right = false
 	left = true
 	photo_num += 1
 	if photo_num > 5:
+		round_two.battery_percent -= 2
+		round_two.dark_battery = false
 		get_tree().change_scene_to_file("res://card_game.tscn")
 	
 
-func _on_swipe_right_pressed():
+func swipe_right():
 	if round_two.no_snooze == true:
 		round_two.tinder_match = true
+		round_two.dark_battery = false
 		get_tree().change_scene_to_file("res://visual_novel.tscn")
 	elif photo_num < 5:
 		left = false
 		right = true
 		photo_num += 1
 	else:
+		round_two.battery_percent -= 2
+		round_two.dark_battery = false
 		get_tree().change_scene_to_file("res://card_game.tscn")
+
+func _on_swipe_right_detection_mouse_entered():
+	can_swipe_right = true
+
+
+func _on_swipe_right_detection_mouse_exited():
+	can_swipe_right = false
+
+
+func _on_swipe_left_detection_mouse_entered():
+	can_swipe_left = true
+
+
+func _on_swipe_left_detection_mouse_exited():
+	can_swipe_left = false

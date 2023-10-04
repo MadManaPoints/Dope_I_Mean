@@ -14,11 +14,13 @@ func _process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.name == "cart_player":
+		round_two.battery_percent -= 2
 		round_two.shopping_fail = true
 		if round_two.no_snooze == true:
 			get_tree().change_scene_to_file("res://catch_game.tscn")
 
 		if round_two.no_snooze == false:
+			round_two.dark_battery = false
 			if round_two.mental_muscle == true:
 				get_tree().change_scene_to_file("res://bumblebee.tscn")
 			elif round_two.chip_fail_2 == true:
@@ -33,6 +35,7 @@ func _on_end_body_entered(body):
 			get_tree().change_scene_to_file("res://tinder.tscn")
 
 		if round_two.no_snooze == false:
+			round_two.dark_battery = false
 			if round_two.mental_muscle == true:
 				get_tree().change_scene_to_file("res://slot_machine.tscn")
 			elif round_two.chip_fail_2 == true:

@@ -37,3 +37,6 @@ var item
 var wish_time = false
 
 var tower_destroy = false
+
+var battery_percent = 11
+var dark_battery = false

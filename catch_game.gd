@@ -6,10 +6,8 @@ extends Node2D
 @onready var coins = $catch_player
 var score_count
 
-
 func _ready():
-	pass
-
+	round_two.dark_battery = true
 
 func _process(_delta):
 	if coins.score > 9:
@@ -18,6 +16,7 @@ func _process(_delta):
 	if coins.score > 210:
 		change_scene()
 	elif coins.score < -10:
+		round_two.battery_percent -= 2
 		change_scene()
 
 
@@ -32,6 +31,7 @@ func _on_timer_timeout():
 	tears()
 
 func change_scene():
+	round_two.dark_battery = false
 	if round_two.no_snooze == true:
 		if round_two.tinder_match == true:
 			get_tree().change_scene_to_file("res://towers/tower_defense.tscn")

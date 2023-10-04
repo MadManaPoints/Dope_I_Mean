@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var headphones = load("res://assets/shopping/thumbnails/headphones.png")
 var sex_toy = load("res://assets/shopping/thumbnails/sex_toy.png")
 var crystal = load("res://assets/shopping/thumbnails/crystal.png")
@@ -13,8 +14,6 @@ var pineapple = load("res://assets/shopping/thumbnails/pineapple.png")
 var astrology = load("res://assets/shopping/thumbnails/astrology.png")
 var giftcard = load("res://assets/shopping/thumbnails/giftcard.png")
 
-
-var can_flip = false
 var flipped = false 
 var speed = 200
 var velocity = Vector2(125, -500)
@@ -23,9 +22,11 @@ var decrease_size = Vector2(0.33, 0.33)
 var new_coin = Vector2(0, 0)
 @onready var anim = $coin
 @onready var surprise_item = $notification_ui
+@onready var button = $button
 
 var item
 var items = []
+
 
 func _ready():
 	round_two.wish_time = true
@@ -59,10 +60,9 @@ func _ready():
 
 
 func _process(delta):
-	if can_flip == true and Input.is_action_just_pressed("mouse_left"):
-		anim.play("flip")
-		flipped = true
-		
+	flipped = true
+	anim.play("flip")
+
 	if flipped == true:
 		$coin.position += velocity * delta
 		velocity += acceleration * delta
@@ -77,12 +77,10 @@ func _process(delta):
 			$wish.set_texture(item)
 			$wish.get_texture()
 			if Input.is_action_just_pressed("mouse_left"):
+				round_two.dark_battery = false
 				get_tree().change_scene_to_file("res://slot_machine.tscn")
 
 
-func _on_area_2d_mouse_entered():
-	can_flip = true
-
-
-func _on_area_2d_mouse_exited():
-	can_flip = false
+func _on_button_pressed():
+	button.hide()
+	flipped = true

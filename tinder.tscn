@@ -1,11 +1,64 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceuipdlnpk8y1"]
+[gd_scene load_steps=20 format=3 uid="uid://ceuipdlnpk8y1"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rv30k"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_3apys"]
 [ext_resource type="PackedScene" uid="uid://kadte05unkw2" path="res://baddies.tscn" id="3_1f0cx"]
+[ext_resource type="Texture2D" uid="uid://dvxypbbkvko4q" path="res://assets/Visual Novel/Exports/HomeScreen/HomeScreenBackground.jpg" id="3_uxc10"]
 [ext_resource type="Texture2D" uid="uid://c2mr6o6fqb6a" path="res://assets/folder_icon.png" id="4_oc1wx"]
-[ext_resource type="Texture2D" uid="uid://wjw8qhhl1f7l" path="res://assets/heart_icon.png" id="5_3w1kn"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="6_g7ydg"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="7_63jow"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="8_fjg3h"]
+[ext_resource type="Script" path="res://battery_life.gd" id="9_et85h"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="10_djas4"]
+[ext_resource type="Texture2D" uid="uid://cdumqx287ekd8" path="res://assets/Visual Novel/Exports/Icons/PinkHeart.png" id="11_yu0yr"]
+[ext_resource type="Texture2D" uid="uid://diu54xbie7jeq" path="res://assets/Visual Novel/Exports/GreenBtn.png" id="12_kgl6e"]
+[ext_resource type="Texture2D" uid="uid://uxyvehwoahte" path="res://assets/Visual Novel/Exports/GreenBtnPressed.png" id="13_xabpf"]
+[ext_resource type="Texture2D" uid="uid://dbs2k4wsg845x" path="res://assets/Visual Novel/Exports/ExitPopup/RedBtn.png" id="14_1c0px"]
+[ext_resource type="Texture2D" uid="uid://dqoycfebn37ul" path="res://assets/Visual Novel/Exports/ExitPopup/RedBtnPressed.png" id="15_da1me"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vg70w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_kgl6e")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xabpf")
+}],
+"loop": true,
+"name": &"unclicked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0px4q"]
+size = Vector2(192, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ja0w3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_1c0px")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_da1me")
+}],
+"loop": true,
+"name": &"unclicked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giqxg"]
+size = Vector2(189, 79)
 
 [node name="tinder" type="Node2D"]
 
@@ -19,6 +72,10 @@ position = Vector2(960, 540)
 rotation = 1.5708
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_3apys")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(962, 557)
+texture = ExtResource("3_uxc10")
 
 [node name="die_alone" type="Label" parent="."]
 offset_left = 552.0
@@ -34,26 +91,53 @@ vertical_alignment = 1
 [node name="baddies" parent="." instance=ExtResource("3_1f0cx")]
 position = Vector2(-25, 33)
 
-[node name="swipe_left" type="Button" parent="baddies"]
-offset_left = 636.0
-offset_top = 869.0
-offset_right = 902.0
-offset_bottom = 983.0
-theme_override_font_sizes/font_size = 30
-text = "SWIPE LEFT </3"
+[node name="right" type="AnimatedSprite2D" parent="baddies"]
+position = Vector2(1185, 922)
+sprite_frames = SubResource("SpriteFrames_vg70w")
+animation = &"unclicked"
 
-[node name="swipe_right" type="Button" parent="baddies"]
-offset_left = 1069.0
-offset_top = 869.0
-offset_right = 1335.0
-offset_bottom = 983.0
-theme_override_font_sizes/font_size = 30
-text = "SWIPE RIGHT <3"
+[node name="swipe_right_detection" type="Area2D" parent="baddies/right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baddies/right/swipe_right_detection"]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_0px4q")
+
+[node name="left" type="AnimatedSprite2D" parent="baddies"]
+position = Vector2(794, 922)
+sprite_frames = SubResource("SpriteFrames_ja0w3")
+animation = &"unclicked"
+
+[node name="swipe_left_detection" type="Area2D" parent="baddies/left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="baddies/left/swipe_left_detection"]
+position = Vector2(2.5, -0.5)
+shape = SubResource("RectangleShape2D_giqxg")
+
+[node name="swipe_right_text" type="Label" parent="baddies"]
+offset_left = 1087.0
+offset_top = 882.0
+offset_right = 1276.0
+offset_bottom = 962.0
+theme_override_font_sizes/font_size = 25
+text = "Swipe Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="swipe_left_text" type="Label" parent="baddies"]
+offset_left = 700.0
+offset_top = 883.0
+offset_right = 880.0
+offset_bottom = 961.0
+theme_override_font_sizes/font_size = 25
+text = "Swipe Left"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="left_black_screen" type="Sprite2D" parent="."]
 position = Vector2(-405, 516)
 scale = Vector2(1, 1.18333)
 texture = ExtResource("1_rv30k")
+metadata/_edit_lock_ = true
 
 [node name="right_black_screen" type="Sprite2D" parent="."]
 position = Vector2(2323, 568.5)
@@ -64,11 +148,6 @@ texture = ExtResource("1_rv30k")
 position = Vector2(683, 70)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_oc1wx")
-
-[node name="heart" type="Sprite2D" parent="."]
-position = Vector2(682, 75)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("5_3w1kn")
 
 [node name="finder" type="Label" parent="."]
 visible = false
@@ -84,5 +163,49 @@ text = "FINDER"
 position = Vector2(960, 540)
 texture = ExtResource("6_g7ydg")
 
-[connection signal="pressed" from="baddies/swipe_left" to="baddies" method="_on_swipe_left_pressed"]
-[connection signal="pressed" from="baddies/swipe_right" to="baddies" method="_on_swipe_right_pressed"]
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_63jow")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("8_fjg3h")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("9_et85h")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_djas4")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PinkHeart" type="Sprite2D" parent="."]
+position = Vector2(682, 76)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("11_yu0yr")
+
+[connection signal="mouse_entered" from="baddies/right/swipe_right_detection" to="baddies" method="_on_swipe_right_detection_mouse_entered"]
+[connection signal="mouse_exited" from="baddies/right/swipe_right_detection" to="baddies" method="_on_swipe_right_detection_mouse_exited"]
+[connection signal="mouse_entered" from="baddies/left/swipe_left_detection" to="baddies" method="_on_swipe_left_detection_mouse_entered"]
+[connection signal="mouse_exited" from="baddies/left/swipe_left_detection" to="baddies" method="_on_swipe_left_detection_mouse_exited"]

@@ -6,6 +6,7 @@ var start
 var direction := Vector2.ZERO
 @onready var player := get_tree().get_first_node_in_group("catch_player")
 @onready var catcher = $"../catch_player"
+@onready var anim = $CollisionShape2D/coin_anim
 var win = false
 
 
@@ -42,12 +43,9 @@ func score_decrease():
 		
 func tears_to_gold():
 	if catcher.score < 0:
-		$CollisionShape2D/coin_anim.hide()
-		$CollisionShape2D/tear_anim.play("tear")
+		anim.play("tear")
 	elif catcher.score < 10:
-		$CollisionShape2D/tear_anim.hide()
-		$CollisionShape2D/coin_anim.play("spin")
+		anim.play("spin")
 	else:
-		$CollisionShape2D/tear_anim.hide()
-		$CollisionShape2D/coin_anim.play("Idle")
+		anim.play("idle")
 	

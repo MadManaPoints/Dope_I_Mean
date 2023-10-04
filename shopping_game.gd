@@ -28,6 +28,7 @@ var press_12 = false
 
 func _ready():
 	start = get_global_position()
+	round_two.dark_battery = true
 
 
 func _process(_delta):
@@ -93,6 +94,7 @@ func _on_bottom_mouse_exited():
 
 func _on_button_pressed():
 	if round_two.make_a_wish == true and item_num > 0:
+		round_two.dark_battery = false
 		get_tree().change_scene_to_file("res://wishing_game.tscn")
 	if round_two.make_a_wish == false:
 		get_tree().change_scene_to_file("res://cart_game.tscn")

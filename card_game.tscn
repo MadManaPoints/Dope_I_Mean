@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cvdxtsc3m7lex"]
+[gd_scene load_steps=28 format=3 uid="uid://cvdxtsc3m7lex"]
 
 [ext_resource type="Script" path="res://card_game.gd" id="1_f2fnt"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rn86q"]
@@ -21,6 +21,10 @@
 [ext_resource type="Script" path="res://tear_drop.gd" id="17_j7bxq"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="19_nk72x"]
 [ext_resource type="Texture2D" uid="uid://mii6gbmjidvh" path="res://assets/cards/red_joker.png" id="20_vltko"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="22_3re5a"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="23_ahnqp"]
+[ext_resource type="Script" path="res://battery_life.gd" id="24_ehlb0"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="25_vj2qf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_secyv"]
 size = Vector2(121.5, 180)
@@ -125,8 +129,9 @@ shape = SubResource("RectangleShape2D_dyw8n")
 position = Vector2(1061, 479)
 
 [node name="tear_drop" type="Sprite2D" parent="king"]
+modulate = Color(0.133333, 0, 0.890196, 1)
 position = Vector2(4, -34)
-scale = Vector2(0.0813815, 0.0813815)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("16_4hucc")
 script = ExtResource("17_j7bxq")
 
@@ -157,6 +162,40 @@ texture = ExtResource("1_rn86q")
 position = Vector2(2323, 568.5)
 scale = Vector2(1, 1.16019)
 texture = ExtResource("1_rn86q")
+
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("22_3re5a")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("23_ahnqp")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("24_ehlb0")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("25_vj2qf")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="staying_cards/six_move" to="." method="_on_six_move_body_entered"]
 [connection signal="body_exited" from="staying_cards/six_move" to="." method="_on_six_move_body_exited"]

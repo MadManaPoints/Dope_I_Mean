@@ -127,6 +127,8 @@ func win():
 
 
 func change_scene():
+	if skull_end == true:
+		round_two.battery_percent -= 2
 	if round_two.no_snooze == true:
 		if round_two.shopping_fail == true:
 			get_tree().change_scene_to_file("res://doctor_visit.tscn")

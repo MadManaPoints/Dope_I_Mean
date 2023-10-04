@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx3iyd5xr4yya"]
+[gd_scene load_steps=11 format=3 uid="uid://cx3iyd5xr4yya"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_3h2a2"]
 [ext_resource type="Script" path="res://title_screen.gd" id="1_37bcm"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://djuxst532wff5" path="res://assets/title_screen.png" id="3_i3otr"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="4_fqmtw"]
 [ext_resource type="Texture2D" uid="uid://bre8sh57lifvc" path="res://assets/title_screen_2.png" id="4_n4p8n"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="7_8dudq"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="8_2w314"]
+[ext_resource type="Script" path="res://battery_life.gd" id="9_ji8y1"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="10_ix1vx"]
 
 [node name="title_screen" type="Node2D"]
 script = ExtResource("1_37bcm")
@@ -46,3 +50,37 @@ texture = ExtResource("1_3h2a2")
 position = Vector2(957, 540)
 texture = ExtResource("4_fqmtw")
 metadata/_edit_lock_ = true
+
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_8dudq")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("8_2w314")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("9_ji8y1")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_ix1vx")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://rhvf2hip6twj"]
+[gd_scene load_steps=15 format=3 uid="uid://rhvf2hip6twj"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_oorwv"]
 [ext_resource type="Script" path="res://end.gd" id="1_x47ii"]
@@ -8,6 +8,10 @@
 [ext_resource type="Script" path="res://alarm_button.gd" id="5_ng51f"]
 [ext_resource type="Texture2D" uid="uid://ffmlkwg5ivrt" path="res://assets/alarm_off.png" id="6_jxel5"]
 [ext_resource type="Texture2D" uid="uid://bj4a2bl6jbif8" path="res://assets/alarm_on.png" id="7_ropyv"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="9_sq5mm"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="10_qxeio"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="11_wayxn"]
+[ext_resource type="Script" path="res://battery_life.gd" id="11_ynepo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_oewui"]
 animations = [{
@@ -271,6 +275,40 @@ offset_bottom = 103.0
 theme_override_colors/font_color = Color(0.937255, 0.482353, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "Done"
+
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_sq5mm")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("10_qxeio")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("11_ynepo")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_wayxn")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="alarm_button/AnimatedSprite2D/Area2D" to="alarm_button" method="_on_area_2d_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="alarm_button/AnimatedSprite2D/Area2D" to="alarm_button" method="_on_area_2d_mouse_exited" flags=18]

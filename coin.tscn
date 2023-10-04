@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://drmh3aiglbywb"]
+[gd_scene load_steps=21 format=3 uid="uid://drmh3aiglbywb"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_g4d8t"]
 [ext_resource type="Texture2D" uid="uid://ca0010j5m73w2" path="res://assets/coin_animation/image 1.png" id="2_pi1s3"]
@@ -30,7 +30,7 @@ animations = [{
 "texture": ExtResource("2_pi1s3")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -85,10 +85,7 @@ animations = [{
 "loop": true,
 "name": &"spin",
 "speed": 8.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_3sa4d"]
-animations = [{
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("18_t32af")
@@ -109,14 +106,8 @@ shape = SubResource("CapsuleShape2D_46pip")
 position = Vector2(-1.5, 3)
 scale = Vector2(0.519531, 0.519531)
 sprite_frames = SubResource("SpriteFrames_unugl")
-animation = &"Idle"
+animation = &"idle"
 speed_scale = 2.0
-
-[node name="tear_anim" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(-0.5, -3)
-scale = Vector2(0.17096, 0.17096)
-sprite_frames = SubResource("SpriteFrames_3sa4d")
-animation = &"tear"
 
 [node name="blank_for_now" type="Label" parent="."]
 offset_left = -50.0

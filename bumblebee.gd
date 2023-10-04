@@ -31,6 +31,7 @@ func _process(_delta):
 
 	if red == true and player.green == true:
 		if buffer == true:
+			round_two.battery_percent -= 2
 			change_scene()
 		
 func change_scene():

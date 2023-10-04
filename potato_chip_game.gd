@@ -48,6 +48,7 @@ func _process(delta):
 		resist_chips()
 
 	if num_left <= 0:
+		round_two.battery_percent -= 2
 		lose()
 
 
@@ -117,7 +118,7 @@ func resist_chips():
 
 func win():
 	if round_two.no_snooze == true:
-		if round_two.mental_muscle == true and round_two.tinder_match == true:
+		if round_two.mental_muscle == true:
 			get_tree().change_scene_to_file("res://end.tscn")
 		elif round_two.shopping_fail == true and round_two.mental_muscle == false:
 			get_tree().change_scene_to_file("res://visual_novel.tscn")

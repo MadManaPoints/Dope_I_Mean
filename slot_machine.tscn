@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://mx4wjpb65vfe"]
+[gd_scene load_steps=52 format=3 uid="uid://mx4wjpb65vfe"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_x6jm6"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_jjq1c"]
@@ -44,6 +44,10 @@
 [ext_resource type="Texture2D" uid="uid://c2e81gn2ydyxx" path="res://assets/slot_machine/lootbox/outfit_11.png" id="42_yqpld"]
 [ext_resource type="Texture2D" uid="uid://fpt8e6u83i4p" path="res://assets/slot_machine/lootbox/outfit_12.png" id="43_hxukg"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="44_iu7nk"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="45_w6c3j"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="46_2vyjs"]
+[ext_resource type="Script" path="res://battery_life.gd" id="47_qd1cu"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="48_bsndh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ff521"]
 animations = [{
@@ -257,7 +261,6 @@ texture = ExtResource("4_i08u6")
 
 [node name="slot" parent="." instance=ExtResource("3_sun8y")]
 position = Vector2(926, 633)
-animation = &"Coin"
 script = ExtResource("4_wd2b3")
 
 [node name="coins" type="Label" parent="slot"]
@@ -321,6 +324,40 @@ texture = ExtResource("7_cp60x")
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("44_iu7nk")
+
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("45_w6c3j")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("46_2vyjs")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("47_qd1cu")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("48_bsndh")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="mouse_entered" from="slot/Area2D" to="slot" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="slot/Area2D" to="slot" method="_on_area_2d_mouse_exited"]

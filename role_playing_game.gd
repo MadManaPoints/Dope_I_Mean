@@ -122,7 +122,11 @@ func _on_digger_detection_body_entered(body):
 		gravedigger_text = true
 
 func change_scene():
-	get_tree().change_scene_to_file("res://potato_chip_game.tscn")
+	if convo_one == true and convo_two == true and convo_three == true:
+		get_tree().change_scene_to_file("res://potato_chip_game.tscn")
+	else:
+		round_two.battery_percent -= 2
+		get_tree().change_scene_to_file("res://potato_chip_game.tscn")
 
 
 func _on_bartender_detection_body_entered(body):

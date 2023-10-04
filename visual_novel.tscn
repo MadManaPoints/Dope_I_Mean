@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://qs8pktqk6aps"]
+[gd_scene load_steps=28 format=3 uid="uid://qs8pktqk6aps"]
 
 [ext_resource type="Script" path="res://visual_novel.gd" id="1_7dj3p"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_yiqnp"]
@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://dyelrjvw2k8a4" path="res://assets/Visual Novel/Gym/Ponytail/Aiko_Gym_Pony_Shout.png" id="12_fp32f"]
 [ext_resource type="Texture2D" uid="uid://difhqklmbir06" path="res://assets/Visual Novel/Exports/NextBtnPressed.png" id="13_qpg5r"]
 [ext_resource type="Texture2D" uid="uid://dcggomuvwbwbc" path="res://assets/Visual Novel/Aiko_Full/Aiko_Full_Open.png" id="14_rns02"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="20_lwqdb"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="21_chqk1"]
+[ext_resource type="Script" path="res://battery_life.gd" id="22_hdtge"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="23_64w6q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljnp3"]
 animations = [{
@@ -268,6 +272,40 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(959, 534)
 scale = Vector2(1.01563, 1.02222)
 texture = ExtResource("1_yiqnp")
+
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_lwqdb")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("21_chqk1")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("22_hdtge")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_64w6q")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Control/dialogue_box/yes" to="Control/dialogue_box" method="_on_yes_pressed" flags=18]
 [connection signal="pressed" from="Control/dialogue_box/no" to="Control/dialogue_box" method="_on_no_pressed" flags=18]

@@ -25,6 +25,7 @@ func _ready():
 	$yes.hide()
 	$no.hide()
 	load_dialogue()
+	round_two.dark_battery = true
 	
 func _process(_delta):
 	$NextBtnPressed.visible = end_sentence
@@ -101,6 +102,7 @@ func _on_no_pressed():
 		
 func end():
 	if $text.visible_ratio >= 1 and Input.is_action_just_pressed("mouse_left"):
+		round_two.dark_battery = false
 		if round_two.no_snooze == true:
 			if round_two.shopping_fail == true:
 				get_tree().change_scene_to_file("res://towers/tower_defense.tscn")

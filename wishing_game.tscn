@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://csx2v4pus32yi"]
+[gd_scene load_steps=28 format=3 uid="uid://csx2v4pus32yi"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_1pwug"]
 [ext_resource type="Script" path="res://wishing_game.gd" id="1_msnwq"]
@@ -22,6 +22,10 @@
 [ext_resource type="Texture2D" uid="uid://d153hw8itibfe" path="res://assets/coin_animation/image 8.png" id="19_eggno"]
 [ext_resource type="PackedScene" uid="uid://nde51nr0wste" path="res://notification_ui.tscn" id="21_7l21u"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="22_1dw2n"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="23_lepk4"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="24_58jdu"]
+[ext_resource type="Script" path="res://battery_life.gd" id="25_c83t4"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="26_kxpte"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkh82"]
 animations = [{
@@ -87,9 +91,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sojuw"]
-size = Vector2(45.3333, 126.667)
-
 [node name="wishing_game" type="Node2D"]
 script = ExtResource("1_msnwq")
 
@@ -128,11 +129,39 @@ scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_lkh82")
 animation = &"flip"
 
-[node name="Area2D" type="Area2D" parent="coin"]
+[node name="battery_group" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="coin/Area2D"]
-position = Vector2(-1.33337, 0.666504)
-shape = SubResource("RectangleShape2D_sojuw")
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("23_lepk4")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("24_58jdu")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("25_c83t4")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("26_kxpte")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="notification_ui" parent="." instance=ExtResource("21_7l21u")]
 position = Vector2(973, -78)
@@ -148,5 +177,12 @@ stretch_mode = 3
 position = Vector2(960, 540)
 texture = ExtResource("22_1dw2n")
 
-[connection signal="mouse_entered" from="coin/Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="coin/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="button" type="Button" parent="."]
+offset_left = 714.0
+offset_top = 899.0
+offset_right = 872.0
+offset_bottom = 975.0
+theme_override_font_sizes/font_size = 23
+text = "Make a Wish"
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

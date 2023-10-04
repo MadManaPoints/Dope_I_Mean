@@ -207,8 +207,9 @@ func _on_no_pressed():
 			load_dialogue()
 			end = true
 
-
 func change_scene():
+		if mad == true:
+			round_two.battery_percent -= 2
 		if Input.is_action_just_pressed("mouse_left") and round_two.no_snooze == true:
 				if round_two.tinder_match == true:
 					get_tree().change_scene_to_file("res://potato_chip_game.tscn")

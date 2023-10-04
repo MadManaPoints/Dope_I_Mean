@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bitrs5euj3gu6"]
+[gd_scene load_steps=22 format=3 uid="uid://bitrs5euj3gu6"]
 
 [ext_resource type="Script" path="res://bumblebee.gd" id="1_f10bi"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jw2kx"]
@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://b6a6naxdl06c7" path="res://assets/rec/rec_button_6.png" id="11_f0ots"]
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="13_6arry"]
 [ext_resource type="Texture2D" uid="uid://bj13o2bkqak33" path="res://assets/sign.png" id="15_8mk3m"]
+[ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="16_uxghm"]
+[ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="17_5o1l2"]
+[ext_resource type="Script" path="res://battery_life.gd" id="18_8dvg8"]
+[ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="19_puapg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sswgr"]
 radius = 62.0
@@ -152,6 +156,40 @@ texture = ExtResource("1_jw2kx")
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("13_6arry")
+
+[node name="battery_group" type="Node" parent="."]
+
+[node name="battery" type="Sprite2D" parent="battery_group"]
+position = Vector2(1268, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("16_uxghm")
+
+[node name="battery_life" type="TextureProgressBar" parent="battery_group/battery"]
+offset_left = -200.0
+offset_top = -101.0
+offset_right = 200.0
+offset_bottom = 99.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("17_5o1l2")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(1, 1, 1, 0)
+script = ExtResource("18_8dvg8")
+
+[node name="service_bar" type="Sprite2D" parent="battery_group"]
+position = Vector2(1172, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_puapg")
+
+[node name="5G" type="Label" parent="battery_group"]
+offset_left = 1194.0
+offset_top = 39.0
+offset_right = 1233.0
+offset_bottom = 84.0
+theme_override_font_sizes/font_size = 30
+text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="og_bee/detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="timer_1" to="." method="_on_timer_1_timeout"]

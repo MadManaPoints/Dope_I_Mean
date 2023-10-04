@@ -17,7 +17,7 @@ func cry(delta):
 	if fall == true:
 		visible = true
 		var tween = get_tree().create_tween()
-		tween.tween_property(self, "scale", Vector2(0.071, 0.081), 1)
+		tween.tween_property(self, "scale", Vector2(.3, .3), 1)
 		await tween.finished
 		position += velocity * delta
 		velocity += acceleration
