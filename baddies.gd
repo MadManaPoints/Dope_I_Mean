@@ -28,25 +28,25 @@ func _process(delta):
 func cycle_photos(delta):
 	if photo_num == 0: 
 		$danielle.show()
-	if photo_num  == 1:
+	if photo_num  >= 1:
 		if left == true:
 			$danielle.position.x -= 2000 * delta
 		if right == true:
 			$danielle.position.x += 2000 * delta
 		$kenya.show()
-	if photo_num == 2:
+	if photo_num >= 2:
 		if left == true:
 			$kenya.position.x -= 2000 * delta
 		if right == true:
 			$kenya.position.x += 2000 * delta
 		$naveah.show()
-	if photo_num == 3:
+	if photo_num >= 3:
 		if left == true:
 			$naveah.position.x -= 2000 * delta
 		if right == true:
 			$naveah.position.x += 2000 * delta
 		$alex.show()
-	if photo_num == 4:
+	if photo_num >= 4:
 		if left == true:
 			$alex.position.x -= 2000 * delta
 		if right == true:

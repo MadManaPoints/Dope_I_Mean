@@ -33,7 +33,7 @@ func _process(_delta):
 	change_scene()
 
 func change_scene():
-	if round_two.num_alive > 8:
+	if round_two.num_alive > 7:
 		round_two.mental_muscle = true
 		if round_two.no_snooze == false:
 			get_tree().change_scene_to_file("res://farm_sim.tscn")

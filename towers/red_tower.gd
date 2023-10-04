@@ -24,9 +24,9 @@ func _on_tower_body_entered(body):
 		for i in current_targets:
 			if "intrusive_thought" in i.name:
 				temp_array.append(i)
-				
+
 		var current_target = null
-		
+
 		for i in temp_array:
 			if current_target == null:
 				current_target = i.get_node("../")
@@ -40,7 +40,7 @@ func _on_tower_body_entered(body):
 		var temp_bullet = bullet.instantiate()
 		temp_bullet.path_name = path_name
 		temp_bullet.bullet_damage = bullet_damage
-		get_node("bullet_container").add_child(temp_bullet)
+		get_node("bullet_container").call_deferred("add_child", temp_bullet)
 		temp_bullet.global_position = $aim.global_position
 
 

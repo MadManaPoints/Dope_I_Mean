@@ -94,10 +94,16 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_aqij2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aqij2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_aqij2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Toilet",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -110,4 +116,4 @@ animations = [{
 
 [node name="slot" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_fo65u")
-animation = &"Coin"
+animation = &"Toilet"

@@ -76,6 +76,7 @@ func _process(_delta):
 			prize = true
 		elif toilet == true:
 			play("Toilet")
+			await animation_finished
 			toilet_end = true
 			can_click = true
 
