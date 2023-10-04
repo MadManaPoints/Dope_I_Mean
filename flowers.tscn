@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bm2jcr6gw03rx"]
+[gd_scene load_steps=11 format=3 uid="uid://bm2jcr6gw03rx"]
 
 [ext_resource type="Script" path="res://flowers.gd" id="1_1k6ek"]
 [ext_resource type="Texture2D" uid="uid://cw3vl06hp4eqd" path="res://assets/sunflowers.png" id="2_sth36"]
 [ext_resource type="Script" path="res://tap_controls.gd" id="3_78uen"]
+[ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="4_8kll1"]
 [ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="4_tsbec"]
+[ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="5_6uifn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gsaur"]
 animations = [{
@@ -24,10 +26,26 @@ height = 210.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_tsbec")
+"texture": ExtResource("4_8kll1")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6uifn")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_tsbec")
+}],
+"loop": true,
+"name": &"hover",
 "speed": 5.0
 }]
 
@@ -53,6 +71,7 @@ script = ExtResource("3_78uen")
 
 [node name="button" type="AnimatedSprite2D" parent="tap_controls"]
 sprite_frames = SubResource("SpriteFrames_vu3mm")
+animation = &"clicked"
 
 [node name="detection" type="Area2D" parent="tap_controls/button"]
 

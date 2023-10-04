@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cswgu6cjy22nf"]
+[gd_scene load_steps=10 format=3 uid="uid://cswgu6cjy22nf"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_3sau8"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_s4ah1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://btd6uk6op2o5r" path="res://assets/desk.jpg" id="3_yatxt"]
 [ext_resource type="Script" path="res://on_the_clock.gd" id="4_601k2"]
 [ext_resource type="Texture2D" uid="uid://civ6vdgxm337g" path="res://assets/clock_proto/hour_hand.png" id="5_eh47f"]
+[ext_resource type="Script" path="res://instructions.gd" id="5_utmf4"]
 [ext_resource type="Texture2D" uid="uid://dhy1yfuybomsf" path="res://assets/clock_proto/minute_hand.png" id="6_3w1mc"]
 [ext_resource type="Texture2D" uid="uid://6k8o02kn137g" path="res://assets/no_phones_transparent.png" id="7_riqh2"]
 
@@ -65,6 +66,25 @@ visible = false
 position = Vector2(-196.667, 93.3334)
 scale = Vector2(3.71354, 3.62037)
 texture = ExtResource("1_3sau8")
+
+[node name="instructions" type="Control" parent="clock"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1550.0
+offset_top = -903.333
+offset_right = -981.0
+offset_bottom = -770.333
+script = ExtResource("5_utmf4")
+
+[node name="text" type="Label" parent="clock/instructions"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 43.0
+offset_right = 541.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Wait until someone's watching!"
 
 [node name="left_black_screen" type="Sprite2D" parent="."]
 position = Vector2(-405, 516)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://e6niyj6oy3e3"]
+[gd_scene load_steps=18 format=3 uid="uid://e6niyj6oy3e3"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_2ktqw"]
 [ext_resource type="Script" path="res://counting_sheep.gd" id="1_5jdcl"]
@@ -12,16 +12,34 @@
 [ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="10_sx6l5"]
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="11_77oj5"]
 [ext_resource type="Script" path="res://battery_life.gd" id="12_vu0mf"]
+[ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="13_2315f"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="13_o6ba8"]
+[ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="14_xtgwr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_ulqaj")
+"texture": ExtResource("13_2315f")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xtgwr")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ulqaj")
+}],
+"loop": true,
+"name": &"hover",
 "speed": 5.0
 }]
 
@@ -93,30 +111,6 @@ texture = ExtResource("6_rhrr6")
 flip_h = true
 flip_v = true
 
-[node name="tap_controls" type="CanvasLayer" parent="."]
-offset = Vector2(1150, 850)
-scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 1150, 850)
-script = ExtResource("8_lo560")
-
-[node name="button" type="AnimatedSprite2D" parent="tap_controls"]
-sprite_frames = SubResource("SpriteFrames_vu3mm")
-
-[node name="detection" type="Area2D" parent="tap_controls/button"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tap_controls/button/detection"]
-shape = SubResource("CircleShape2D_5tjip")
-
-[node name="text" type="Label" parent="tap_controls"]
-offset_left = -83.0
-offset_top = -60.0
-offset_right = 85.0
-offset_bottom = 58.0
-theme_override_font_sizes/font_size = 40
-text = "Sample"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="frame" type="Sprite2D" parent="CanvasLayer"]
@@ -164,6 +158,32 @@ offset_right = 1233.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tap_controls" type="CanvasLayer" parent="."]
+offset = Vector2(1150, 800)
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 1150, 800)
+script = ExtResource("8_lo560")
+
+[node name="button" type="AnimatedSprite2D" parent="tap_controls"]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_vu3mm")
+animation = &"clicked"
+
+[node name="detection" type="Area2D" parent="tap_controls/button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tap_controls/button/detection"]
+shape = SubResource("CircleShape2D_5tjip")
+
+[node name="text" type="Label" parent="tap_controls"]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 85.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+text = "Sample"
 horizontal_alignment = 1
 vertical_alignment = 1
 

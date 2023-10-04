@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b54aikswnelg3"]
+[gd_scene load_steps=30 format=3 uid="uid://b54aikswnelg3"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_13s5r"]
 [ext_resource type="Script" path="res://farm_sim.gd" id="1_jssvd"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8j6ldreb7kcl" path="res://rpg_guy.tscn" id="3_p1kg2"]
 [ext_resource type="Texture2D" uid="uid://ctrwms62r3umt" path="res://assets/rpg/farm_glow_fin.png" id="4_iankd"]
 [ext_resource type="Script" path="res://weed_glow.gd" id="5_jt0yw"]
+[ext_resource type="Script" path="res://instructions.gd" id="7_wde5y"]
 [ext_resource type="Texture2D" uid="uid://dkr76f64qfioy" path="res://assets/rpg/weed.png" id="8_pgnjp"]
 [ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="8_yvg2f"]
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="9_pmdtg"]
@@ -352,6 +353,24 @@ format = 2
 layer_0/tile_data = PackedInt32Array(393239, 589824, 8)
 script = ExtResource("5_jt0yw")
 
+[node name="instructions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 690.0
+offset_top = 355.0
+offset_right = 1259.0
+offset_bottom = 488.0
+script = ExtResource("7_wde5y")
+
+[node name="text" type="Label" parent="instructions"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 43.0
+offset_right = 541.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 30
+text = "Wait until someone's watching!"
+
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(962, 540)
 scale = Vector2(1.11852, 1)
@@ -360,7 +379,7 @@ texture = ExtResource("9_uw33a")
 [node name="battery_group" type="Node" parent="."]
 
 [node name="battery" type="Sprite2D" parent="battery_group"]
-position = Vector2(1268, 63)
+position = Vector2(1293, 63)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_yvg2f")
 
@@ -375,24 +394,25 @@ texture_progress = ExtResource("9_pmdtg")
 tint_under = Color(1, 1, 1, 0)
 tint_over = Color(1, 1, 1, 0)
 script = ExtResource("10_7mj0m")
+metadata/_edit_use_anchors_ = true
 
 [node name="service_bar" type="Sprite2D" parent="battery_group"]
-position = Vector2(1172, 64)
+position = Vector2(1197, 64)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("11_rt35g")
 
-[node name="5G" type="Label" parent="battery_group"]
-offset_left = 1194.0
+[node name="five_g" type="Label" parent="battery_group"]
+offset_left = 1219.0
 offset_top = 39.0
-offset_right = 1233.0
+offset_right = 1258.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="black_screen_two" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(1017.5, 493.5)
 scale = Vector2(2.35469, 3.18796)
 texture = ExtResource("1_13s5r")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://hxgvlrt0d0n0"]
+[gd_scene load_steps=21 format=3 uid="uid://hxgvlrt0d0n0"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_bbes5"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_2peqn"]
@@ -11,19 +11,38 @@
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="9_qp0kc"]
 [ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="10_1o3y8"]
 [ext_resource type="Script" path="res://tap_controls.gd" id="10_pdrid"]
+[ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="11_13ufp"]
+[ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="12_s3ilt"]
 [ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="12_ukqjs"]
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="13_drff8"]
 [ext_resource type="Script" path="res://battery_life.gd" id="14_04w5b"]
+[ext_resource type="Script" path="res://instructions.gd" id="14_exci7"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="15_itpje"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_1o3y8")
+"texture": ExtResource("11_13ufp")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_s3ilt")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1o3y8")
+}],
+"loop": true,
+"name": &"hover",
 "speed": 5.0
 }]
 
@@ -66,22 +85,22 @@ script = ExtResource("5_essnx")
 position = Vector2(960, 540)
 texture = ExtResource("9_qp0kc")
 
+[node name="left_black_screen" type="Sprite2D" parent="td_UI"]
+position = Vector2(-405, 516)
+scale = Vector2(1, 1.18333)
+texture = ExtResource("1_bbes5")
+
+[node name="right_black_screen" type="Sprite2D" parent="td_UI"]
+position = Vector2(2325, 568.5)
+scale = Vector2(1, 1.16019)
+texture = ExtResource("1_bbes5")
+
 [node name="path_spawner" type="Node2D" parent="."]
 script = ExtResource("4_elu77")
 
 [node name="Timer" type="Timer" parent="path_spawner"]
 wait_time = 3.0
 autostart = true
-
-[node name="left_black_screen" type="Sprite2D" parent="."]
-position = Vector2(-405, 516)
-scale = Vector2(1, 1.18333)
-texture = ExtResource("1_bbes5")
-
-[node name="right_black_screen" type="Sprite2D" parent="."]
-position = Vector2(2325, 568.5)
-scale = Vector2(1, 1.16019)
-texture = ExtResource("1_bbes5")
 
 [node name="score" type="Label" parent="."]
 offset_left = 607.0
@@ -94,12 +113,13 @@ script = ExtResource("7_q2mb2")
 
 [node name="tap_controls" type="CanvasLayer" parent="score"]
 offset = Vector2(700, 955)
-scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 700, 955)
+scale = Vector2(0.75, 0.75)
+transform = Transform2D(0.75, 0, 0, 0.75, 700, 955)
 script = ExtResource("10_pdrid")
 
 [node name="button" type="AnimatedSprite2D" parent="score/tap_controls"]
 sprite_frames = SubResource("SpriteFrames_vu3mm")
+animation = &"clicked"
 
 [node name="detection" type="Area2D" parent="score/tap_controls/button"]
 
@@ -111,11 +131,29 @@ offset_left = -83.0
 offset_top = -60.0
 offset_right = 85.0
 offset_bottom = 58.0
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "Sample"
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3
+autowrap_mode = 2
+
+[node name="instructions" type="Control" parent="score"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 222.0
+offset_right = 618.0
+offset_bottom = 355.0
+script = ExtResource("14_exci7")
+
+[node name="text" type="Label" parent="score/instructions"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 43.0
+offset_right = 541.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 30
+text = "Wait until someone's watching!"
 
 [node name="Label" type="Label" parent="."]
 offset_left = 596.0

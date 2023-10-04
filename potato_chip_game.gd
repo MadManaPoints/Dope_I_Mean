@@ -6,9 +6,13 @@ extends Node2D
 @onready var score = $score
 @onready var arm = $arm
 @onready var may = $may
+@onready var mash = $mash
+var grow = Vector2(0.5, 0.5)
+var first_text = false
+var second_text = false
 var velocity = Vector2.ZERO
 var take_chip = false
-var num_left = 25
+var num_left = 23
 var start
 
 
@@ -27,6 +31,8 @@ var done = false
 
 
 func _ready():
+	mash.text = "MASH!!!"
+	mash.scale = Vector2(0, 0)
 	tap_text.text = "Grab"
 	may.play("High")
 	arm.play("Open")
@@ -45,11 +51,21 @@ func _process(delta):
 		eat_chips()
 	else:
 		tap_text.text = "RESIST"
-		resist_chips()
+		resist_chips(delta)
 
 	if num_left <= 0:
 		round_two.battery_percent -= 2
 		lose()
+
+	if first_text == true:
+		mash.scale += grow * delta
+		if mash.scale >= Vector2(1, 1):
+			mash.scale = Vector2(1, 1)
+			var timer = get_tree().create_timer(2)
+			await timer.timeout
+			mash.scale = Vector2(0, 0)
+			second_text = true
+			first_text = false
 
 
 func eat_chips():
@@ -76,13 +92,15 @@ func eat_chips():
 		eat = true
 	
 	if num_left < 21:
+		first_text = true
 		turbo_mode = true
+
 
 	if Input.is_action_just_pressed("mouse_right"):
 		print(arm.position)
 
 
-func resist_chips():
+func resist_chips(delta):
 	if take_chip == false:
 		velocity = turbo_speed
 		sub_speed_reverse = turbo_speed * turbo_switch
@@ -112,8 +130,14 @@ func resist_chips():
 		may.play("High")
 		
 
-	if Input.is_action_just_pressed("mouse_right"):
-		print(arm.position)
+	if second_text == true and num_left == 10:
+			mash.text = "DON'T GIVE UP!"
+			mash.scale += grow * delta
+			if mash.scale >= Vector2(1, 1):
+				mash.scale = Vector2(1, 1)
+				var timer = get_tree().create_timer(2)
+				await timer.timeout
+				mash.scale = Vector2(0, 0)
 
 
 func win():

@@ -1,16 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://nwmmdqse71g4"]
+[gd_scene load_steps=7 format=3 uid="uid://nwmmdqse71g4"]
 
 [ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="1_4j08b"]
 [ext_resource type="Script" path="res://tap_controls.gd" id="1_q7w33"]
+[ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="2_2ohel"]
+[ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="3_mk1k6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4j08b")
+"texture": ExtResource("2_2ohel")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mk1k6")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4j08b")
+}],
+"loop": true,
+"name": &"hover",
 "speed": 5.0
 }]
 
@@ -22,6 +40,7 @@ script = ExtResource("1_q7w33")
 
 [node name="button" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vu3mm")
+animation = &"clicked"
 
 [node name="detection" type="Area2D" parent="button"]
 

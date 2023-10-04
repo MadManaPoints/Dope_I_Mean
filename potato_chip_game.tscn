@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://br6mmmm4dycoh"]
+[gd_scene load_steps=30 format=3 uid="uid://br6mmmm4dycoh"]
 
 [ext_resource type="Script" path="res://potato_chip_game.gd" id="1_35wu6"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_gd00o"]
@@ -21,6 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="19_ikt2p"]
 [ext_resource type="Script" path="res://battery_life.gd" id="20_gl5q2"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="21_72wbw"]
+[ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="21_co2xs"]
+[ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="22_j1lde"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orcos"]
 animations = [{
@@ -139,10 +141,26 @@ radius = 148.637
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("16_isa3s")
+"texture": ExtResource("21_co2xs")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_j1lde")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_isa3s")
+}],
+"loop": true,
+"name": &"hover",
 "speed": 5.0
 }]
 
@@ -224,30 +242,6 @@ offset_top = 837.0
 offset_right = 1251.0
 offset_bottom = 933.0
 
-[node name="tap_controls" type="CanvasLayer" parent="."]
-offset = Vector2(1150, 850)
-scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 1150, 850)
-script = ExtResource("16_35let")
-
-[node name="button" type="AnimatedSprite2D" parent="tap_controls"]
-sprite_frames = SubResource("SpriteFrames_vu3mm")
-
-[node name="detection" type="Area2D" parent="tap_controls/button"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="tap_controls/button/detection"]
-shape = SubResource("CircleShape2D_5tjip")
-
-[node name="text" type="Label" parent="tap_controls"]
-offset_left = -83.0
-offset_top = -60.0
-offset_right = 85.0
-offset_bottom = 58.0
-theme_override_font_sizes/font_size = 40
-text = "Sample"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="battery_group" type="Node" parent="."]
 
 [node name="battery" type="Sprite2D" parent="battery_group"]
@@ -279,6 +273,41 @@ offset_right = 1233.0
 offset_bottom = 84.0
 theme_override_font_sizes/font_size = 30
 text = "5G"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tap_controls" type="CanvasLayer" parent="."]
+offset = Vector2(1150, 850)
+scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 1150, 850)
+script = ExtResource("16_35let")
+
+[node name="button" type="AnimatedSprite2D" parent="tap_controls"]
+sprite_frames = SubResource("SpriteFrames_vu3mm")
+animation = &"clicked"
+
+[node name="detection" type="Area2D" parent="tap_controls/button"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tap_controls/button/detection"]
+shape = SubResource("CircleShape2D_5tjip")
+
+[node name="text" type="Label" parent="tap_controls"]
+offset_left = -83.0
+offset_top = -60.0
+offset_right = 85.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+text = "Sample"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="mash" type="Label" parent="."]
+offset_left = 1016.0
+offset_top = 682.0
+offset_right = 1222.0
+offset_bottom = 740.0
+theme_override_font_sizes/font_size = 40
+text = "MASH!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

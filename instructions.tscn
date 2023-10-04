@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3dc53ralcs0y"]
+
+[ext_resource type="Script" path="res://instructions.gd" id="1_efgrx"]
+
+[node name="instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 674.0
+offset_top = 419.0
+offset_right = 1243.0
+offset_bottom = 552.0
+script = ExtResource("1_efgrx")
+
+[node name="text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 43.0
+offset_right = 541.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 30
+text = "Wait until someone's watching!"

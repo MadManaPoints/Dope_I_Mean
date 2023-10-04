@@ -23,8 +23,8 @@ func _ready():
 
 func _process(delta):
 	cycle_photos(delta)
-	
-	
+
+
 func cycle_photos(delta):
 	if photo_num == 0: 
 		$danielle.show()
@@ -61,34 +61,34 @@ func cycle_photos(delta):
 		$kenya.hide()
 		$naveah.hide()
 		$alex.hide()
-		
+
 		if round_two.no_snooze == true:
 			$swipe_left_text.text = "I know"
 			$swipe_right_text.text = "No, I won't"
 		else:
 			$swipe_left_text.text = "Probably"
 			$swipe_right_text.text = "Maybe"
-			
+
 	if can_swipe_left == true:
 		if Input.is_action_pressed("mouse_left"):
 			left_button.play("clicked")
 		
 	if Input.is_action_just_released("mouse_left"):
 		left_button.play("unclicked")
-		
+
 	if can_swipe_right == true:
 		if Input.is_action_pressed("mouse_left"):
 			right_button.play("clicked")
-		
+
 	if Input.is_action_just_released("mouse_left"):
 		right_button.play("unclicked")
 
 	if can_swipe_left == true and Input.is_action_just_released("mouse_left"):
 		swipe_left()
-	
+
 	if can_swipe_right == true and Input.is_action_just_released("mouse_left"):
 		swipe_right()
-	
+
 func swipe_left():
 	right = false
 	left = true
@@ -112,6 +112,7 @@ func swipe_right():
 		round_two.battery_percent -= 2
 		round_two.dark_battery = false
 		get_tree().change_scene_to_file("res://card_game.tscn")
+
 
 func _on_swipe_right_detection_mouse_entered():
 	can_swipe_right = true

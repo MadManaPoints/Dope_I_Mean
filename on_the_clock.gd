@@ -4,11 +4,13 @@ extends Sprite2D
 var can_score = false
 @onready var total = $score_total
 @onready var overlay = $overlay
+@onready var start_text = $instructions/text
 var score = 0
 var not_working = true
 
 
 func _ready():
+	start_text.text = "Impress your boss!"
 	overlay.modulate.a = .2
 
 

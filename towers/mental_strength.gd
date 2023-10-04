@@ -3,9 +3,12 @@ extends Label
 
 @onready var tap = $tap_controls
 @onready var tap_text = $tap_controls/text
+@onready var start_text = $instructions/text
 var can_click = false
 
 func _ready():
+	start_text.text = "Face your intrusive thoughts!"
+	start_text.modulate = Color (0, 0, 0)
 	tap.hide()
 	tap_text.text = "Destroy Towers"
 

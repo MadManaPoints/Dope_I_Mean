@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://du2ubqd88svxr"]
+[gd_scene load_steps=11 format=3 uid="uid://du2ubqd88svxr"]
 
 [ext_resource type="Texture2D" uid="uid://crfb05rm7qw7o" path="res://assets/shopping/cart_icon.png" id="1_jrtxo"]
 [ext_resource type="Script" path="res://cart_player.gd" id="1_mdrwm"]
 [ext_resource type="Script" path="res://tap_controls.gd" id="3_nrq70"]
+[ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="4_4mbdk"]
 [ext_resource type="Texture2D" uid="uid://x5cu6x7nau6o" path="res://assets/tap_button.png" id="4_6q5qs"]
+[ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="5_nvp1p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sw2nc"]
 animations = [{
@@ -24,10 +26,26 @@ height = 112.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6q5qs")
+"texture": ExtResource("4_4mbdk")
+}],
+"loop": true,
+"name": &"clicked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nvp1p")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6q5qs")
+}],
+"loop": true,
+"name": &"hover",
 "speed": 5.0
 }]
 
@@ -51,12 +69,13 @@ shape = SubResource("CapsuleShape2D_ogqkn")
 
 [node name="tap_controls" type="CanvasLayer" parent="."]
 offset = Vector2(1150, 875)
-scale = Vector2(0.8, 0.8)
-transform = Transform2D(0.8, 0, 0, 0.8, 1150, 875)
+scale = Vector2(0.7, 0.7)
+transform = Transform2D(0.7, 0, 0, 0.7, 1150, 875)
 script = ExtResource("3_nrq70")
 
 [node name="button" type="AnimatedSprite2D" parent="tap_controls"]
 sprite_frames = SubResource("SpriteFrames_vu3mm")
+animation = &"clicked"
 
 [node name="detection" type="Area2D" parent="tap_controls/button"]
 

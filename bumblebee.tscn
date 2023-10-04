@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bitrs5euj3gu6"]
+[gd_scene load_steps=23 format=3 uid="uid://bitrs5euj3gu6"]
 
 [ext_resource type="Script" path="res://bumblebee.gd" id="1_f10bi"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jw2kx"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="17_5o1l2"]
 [ext_resource type="Script" path="res://battery_life.gd" id="18_8dvg8"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="19_puapg"]
+[ext_resource type="Script" path="res://instructions.gd" id="20_0ebww"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sswgr"]
 radius = 62.0
@@ -136,6 +137,24 @@ texture = ExtResource("1_jw2kx")
 position = Vector2(962, 967)
 sprite_frames = SubResource("SpriteFrames_v7iqm")
 animation = &"Stop"
+
+[node name="instructions" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 647.0
+offset_top = 470.0
+offset_right = 1216.0
+offset_bottom = 603.0
+script = ExtResource("20_0ebww")
+
+[node name="text" type="Label" parent="instructions"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 43.0
+offset_right = 541.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 30
+text = "Wait until someone's watching!"
 
 [node name="timer_1" type="Timer" parent="."]
 wait_time = 3.0

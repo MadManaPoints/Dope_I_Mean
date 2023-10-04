@@ -4,6 +4,7 @@ extends Node2D
 @onready var rec = $rec
 @onready var player = $flowers
 @onready var rect = $rect
+@onready var start_text = $instructions/text
 var red = true
 var win = false
 var alpha = true
@@ -11,6 +12,7 @@ var buffer = false
 
 
 func _ready():
+	start_text.text = "Deliver flowers while recording!"
 	$timer_1.start()
 	rec.play("Idle")
 	var timer = get_tree().create_timer(.5)
