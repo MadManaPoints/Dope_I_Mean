@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cvdxtsc3m7lex"]
+[gd_scene load_steps=29 format=3 uid="uid://cvdxtsc3m7lex"]
 
 [ext_resource type="Script" path="res://card_game.gd" id="1_f2fnt"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rn86q"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="23_ahnqp"]
 [ext_resource type="Script" path="res://battery_life.gd" id="24_ehlb0"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="25_vj2qf"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="26_mv0m4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_secyv"]
 size = Vector2(121.5, 180)
@@ -196,6 +197,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("26_mv0m4")]
 
 [connection signal="body_entered" from="staying_cards/six_move" to="." method="_on_six_move_body_entered"]
 [connection signal="body_exited" from="staying_cards/six_move" to="." method="_on_six_move_body_exited"]

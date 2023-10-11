@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var countdown = 5
+var countdown = 3
 var final_count = false
 
 

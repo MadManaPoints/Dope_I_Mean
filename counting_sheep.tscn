@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://e6niyj6oy3e3"]
+[gd_scene load_steps=19 format=3 uid="uid://e6niyj6oy3e3"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_2ktqw"]
 [ext_resource type="Script" path="res://counting_sheep.gd" id="1_5jdcl"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="13_2315f"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="13_o6ba8"]
 [ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="14_xtgwr"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="16_umlrr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vu3mm"]
 animations = [{
@@ -186,6 +187,8 @@ theme_override_font_sizes/font_size = 40
 text = "Sample"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("16_umlrr")]
 
 [connection signal="mouse_entered" from="tap_controls/button/detection" to="tap_controls" method="_on_detection_mouse_entered" flags=18]
 [connection signal="mouse_exited" from="tap_controls/button/detection" to="tap_controls" method="_on_detection_mouse_exited" flags=18]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://d30sg2pym6l6m"]
+[gd_scene load_steps=66 format=3 uid="uid://d30sg2pym6l6m"]
 
 [ext_resource type="Script" path="res://role_playing_game.gd" id="1_2ofah"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_k3got"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="11_a2wa7"]
 [ext_resource type="Script" path="res://battery_life.gd" id="12_tynxh"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="13_40tgl"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="14_ntoia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6d6qe"]
 texture = ExtResource("3_g3pwa")
@@ -914,6 +915,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("14_ntoia")]
 
 [connection signal="body_entered" from="gravedigger/digger_detection" to="." method="_on_digger_detection_body_entered"]
 [connection signal="body_exited" from="gravedigger/digger_detection" to="." method="_on_digger_detection_body_exited"]

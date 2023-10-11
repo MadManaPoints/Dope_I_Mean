@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cqyyhuh1ivaxa"]
+[gd_scene load_steps=40 format=3 uid="uid://cqyyhuh1ivaxa"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_a8tgh"]
 [ext_resource type="Script" path="res://shopping_game.gd" id="1_kfvar"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="22_8tc7q"]
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="23_8ru1l"]
 [ext_resource type="Script" path="res://battery_life.gd" id="24_v3ups"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="25_0fgq3"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="25_kf460"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vbiia"]
@@ -384,6 +385,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("25_0fgq3")]
 
 [connection signal="mouse_entered" from="white_phone_screen/headphones/item_1" to="." method="_on_item_1_mouse_entered"]
 [connection signal="mouse_exited" from="white_phone_screen/headphones/item_1" to="." method="_on_item_1_mouse_exited"]

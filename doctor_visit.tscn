@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnqkxa351i1qu"]
+[gd_scene load_steps=11 format=3 uid="uid://bnqkxa351i1qu"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_cqegy"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_kkehm"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="7_ny6t4"]
 [ext_resource type="Script" path="res://battery_life.gd" id="8_lrydb"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="9_hvnsm"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="10_d7emx"]
 
 [node name="doctor_visit" type="Node2D"]
 
@@ -82,3 +83,5 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("10_d7emx")]

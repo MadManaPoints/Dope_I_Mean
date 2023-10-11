@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cswgu6cjy22nf"]
+[gd_scene load_steps=11 format=3 uid="uid://cswgu6cjy22nf"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_3sau8"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_s4ah1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://instructions.gd" id="5_utmf4"]
 [ext_resource type="Texture2D" uid="uid://dhy1yfuybomsf" path="res://assets/clock_proto/minute_hand.png" id="6_3w1mc"]
 [ext_resource type="Texture2D" uid="uid://6k8o02kn137g" path="res://assets/no_phones_transparent.png" id="7_riqh2"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="10_rqskg"]
 
 [node name="typing_game" type="Node2D"]
 
@@ -95,3 +96,5 @@ texture = ExtResource("1_3sau8")
 position = Vector2(2325, 568.5)
 scale = Vector2(1, 1.16019)
 texture = ExtResource("1_3sau8")
+
+[node name="pause" parent="." instance=ExtResource("10_rqskg")]

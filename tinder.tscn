@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ceuipdlnpk8y1"]
+[gd_scene load_steps=22 format=3 uid="uid://ceuipdlnpk8y1"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_rv30k"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_3apys"]
@@ -9,12 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://b27at6m2hp1qu" path="res://assets/battery.png" id="7_63jow"]
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="8_fjg3h"]
 [ext_resource type="Script" path="res://battery_life.gd" id="9_et85h"]
+[ext_resource type="Texture2D" uid="uid://bottg5ngplbbu" path="res://assets/new_folder.png" id="9_siopu"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="10_djas4"]
 [ext_resource type="Texture2D" uid="uid://cdumqx287ekd8" path="res://assets/Visual Novel/Exports/Icons/PinkHeart.png" id="11_yu0yr"]
 [ext_resource type="Texture2D" uid="uid://diu54xbie7jeq" path="res://assets/Visual Novel/Exports/GreenBtn.png" id="12_kgl6e"]
 [ext_resource type="Texture2D" uid="uid://uxyvehwoahte" path="res://assets/Visual Novel/Exports/GreenBtnPressed.png" id="13_xabpf"]
 [ext_resource type="Texture2D" uid="uid://dbs2k4wsg845x" path="res://assets/Visual Novel/Exports/ExitPopup/RedBtn.png" id="14_1c0px"]
 [ext_resource type="Texture2D" uid="uid://dqoycfebn37ul" path="res://assets/Visual Novel/Exports/ExitPopup/RedBtnPressed.png" id="15_da1me"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="17_dugxv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vg70w"]
 animations = [{
@@ -144,20 +146,16 @@ position = Vector2(2323, 568.5)
 scale = Vector2(1, 1.16019)
 texture = ExtResource("1_rv30k")
 
+[node name="NewFolder" type="Sprite2D" parent="."]
+position = Vector2(683, 73)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("9_siopu")
+
 [node name="folder" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(683, 70)
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_oc1wx")
-
-[node name="finder" type="Label" parent="."]
-visible = false
-offset_left = 620.0
-offset_top = 76.0
-offset_right = 904.0
-offset_bottom = 134.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "FINDER"
 
 [node name="frame" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -201,9 +199,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PinkHeart" type="Sprite2D" parent="."]
-position = Vector2(682, 76)
+position = Vector2(682, 78)
 scale = Vector2(0.421875, 0.421875)
 texture = ExtResource("11_yu0yr")
+
+[node name="pause" parent="." instance=ExtResource("17_dugxv")]
 
 [connection signal="mouse_entered" from="baddies/right/swipe_right_detection" to="baddies" method="_on_swipe_right_detection_mouse_entered"]
 [connection signal="mouse_exited" from="baddies/right/swipe_right_detection" to="baddies" method="_on_swipe_right_detection_mouse_exited"]

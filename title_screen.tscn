@@ -84,3 +84,13 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="quit" type="Button" parent="."]
+offset_left = 607.0
+offset_top = 40.0
+offset_right = 747.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 30
+text = "QUIT"
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

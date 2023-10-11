@@ -60,10 +60,8 @@ func _ready():
 
 
 func _process(delta):
-	flipped = true
-	anim.play("flip")
-
 	if flipped == true:
+		anim.play("flip")
 		$coin.position += velocity * delta
 		velocity += acceleration * delta
 		$coin.scale -= decrease_size * delta

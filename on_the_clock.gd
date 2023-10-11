@@ -22,7 +22,7 @@ func _process(_delta):
 	if $hour.rotation > 2.7:
 		can_score = true
 		
-	if score > 300:
+	if score > 150:
 		if round_two.no_snooze == true:
 			get_tree().change_scene_to_file("res://shopping_game.tscn")
 		else:

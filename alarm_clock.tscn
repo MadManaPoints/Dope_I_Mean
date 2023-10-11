@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpwsqlyws1eqw"]
+[gd_scene load_steps=11 format=3 uid="uid://bpwsqlyws1eqw"]
 
 [ext_resource type="Script" path="res://alarm_clock.gd" id="1_8627p"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_tmyes"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="7_fd5ya"]
 [ext_resource type="Script" path="res://battery_life.gd" id="8_4o13v"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="9_0hyne"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="10_5sbvk"]
 
 [node name="alarm_clock" type="Node2D"]
 script = ExtResource("1_8627p")
@@ -120,6 +121,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("10_5sbvk")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="get_up" to="." method="_on_get_up_pressed"]

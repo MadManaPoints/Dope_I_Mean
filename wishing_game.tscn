@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://csx2v4pus32yi"]
+[gd_scene load_steps=29 format=3 uid="uid://csx2v4pus32yi"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_1pwug"]
 [ext_resource type="Script" path="res://wishing_game.gd" id="1_msnwq"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="24_58jdu"]
 [ext_resource type="Script" path="res://battery_life.gd" id="25_c83t4"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="26_kxpte"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="27_jbh4v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lkh82"]
 animations = [{
@@ -184,5 +185,7 @@ offset_right = 872.0
 offset_bottom = 975.0
 theme_override_font_sizes/font_size = 23
 text = "Make a Wish"
+
+[node name="pause" parent="." instance=ExtResource("27_jbh4v")]
 
 [connection signal="pressed" from="button" to="." method="_on_button_pressed"]

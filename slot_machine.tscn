@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://mx4wjpb65vfe"]
+[gd_scene load_steps=53 format=3 uid="uid://mx4wjpb65vfe"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_x6jm6"]
 [ext_resource type="Texture2D" uid="uid://cdbektym4wupo" path="res://assets/white_phone_screen.png" id="2_jjq1c"]
@@ -48,6 +48,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="46_2vyjs"]
 [ext_resource type="Script" path="res://battery_life.gd" id="47_qd1cu"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="48_bsndh"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="49_1fjwp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ff521"]
 animations = [{
@@ -358,6 +359,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("49_1fjwp")]
 
 [connection signal="mouse_entered" from="slot/Area2D" to="slot" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="slot/Area2D" to="slot" method="_on_area_2d_mouse_exited"]

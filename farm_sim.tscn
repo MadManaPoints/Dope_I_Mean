@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b54aikswnelg3"]
+[gd_scene load_steps=31 format=3 uid="uid://b54aikswnelg3"]
 
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_13s5r"]
 [ext_resource type="Script" path="res://farm_sim.gd" id="1_jssvd"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ds58d26trm7fl" path="res://assets/phone_frame.png" id="9_uw33a"]
 [ext_resource type="Script" path="res://battery_life.gd" id="10_7mj0m"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="11_rt35g"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="15_8vrux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_56jn1"]
 texture = ExtResource("3_ncbks")
@@ -437,5 +438,7 @@ shape = SubResource("CapsuleShape2D_ntim1")
 position = Vector2(960, 475)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_pgnjp")
+
+[node name="pause" parent="." instance=ExtResource("15_8vrux")]
 
 [connection signal="body_entered" from="weed_detection" to="." method="_on_weed_detection_body_entered"]

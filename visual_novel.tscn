@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://qs8pktqk6aps"]
+[gd_scene load_steps=29 format=3 uid="uid://qs8pktqk6aps"]
 
 [ext_resource type="Script" path="res://visual_novel.gd" id="1_7dj3p"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_yiqnp"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="21_chqk1"]
 [ext_resource type="Script" path="res://battery_life.gd" id="22_hdtge"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="23_64w6q"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="24_yyfxn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ljnp3"]
 animations = [{
@@ -306,6 +307,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("24_yyfxn")]
 
 [connection signal="pressed" from="Control/dialogue_box/yes" to="Control/dialogue_box" method="_on_yes_pressed" flags=18]
 [connection signal="pressed" from="Control/dialogue_box/no" to="Control/dialogue_box" method="_on_no_pressed" flags=18]

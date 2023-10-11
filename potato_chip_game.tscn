@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://br6mmmm4dycoh"]
+[gd_scene load_steps=31 format=3 uid="uid://br6mmmm4dycoh"]
 
 [ext_resource type="Script" path="res://potato_chip_game.gd" id="1_35wu6"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_gd00o"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="21_72wbw"]
 [ext_resource type="Texture2D" uid="uid://4wm4t204l4xo" path="res://assets/clicked.png" id="21_co2xs"]
 [ext_resource type="Texture2D" uid="uid://buv3rbn26aoj6" path="res://assets/tap_button_2.png" id="22_j1lde"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="24_iox7r"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_orcos"]
 animations = [{
@@ -310,6 +311,8 @@ theme_override_font_sizes/font_size = 40
 text = "MASH!!!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("24_iox7r")]
 
 [connection signal="area_entered" from="chips/grab" to="." method="_on_grab_area_entered"]
 [connection signal="mouse_entered" from="tap_controls/button/detection" to="tap_controls" method="_on_detection_mouse_entered" flags=18]

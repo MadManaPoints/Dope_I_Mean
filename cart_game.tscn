@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8kmsrtr8xhjr"]
+[gd_scene load_steps=14 format=3 uid="uid://c8kmsrtr8xhjr"]
 
 [ext_resource type="PackedScene" uid="uid://du2ubqd88svxr" path="res://cart_player.tscn" id="1_ibhsk"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_mddkx"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://erdcdspvyjc2" path="res://assets/battery_bar.png" id="10_n27v6"]
 [ext_resource type="Script" path="res://battery_life.gd" id="11_xym1h"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="12_maxj6"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="13_ii8sl"]
 
 [node name="cart_game" type="Node2D"]
 
@@ -107,3 +108,5 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("13_ii8sl")]

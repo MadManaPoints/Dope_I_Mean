@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bitrs5euj3gu6"]
+[gd_scene load_steps=24 format=3 uid="uid://bitrs5euj3gu6"]
 
 [ext_resource type="Script" path="res://bumblebee.gd" id="1_f10bi"]
 [ext_resource type="Texture2D" uid="uid://cgx5celc7w0wu" path="res://assets/black_screen.png" id="1_jw2kx"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://battery_life.gd" id="18_8dvg8"]
 [ext_resource type="Texture2D" uid="uid://3kcaqx4t3rdn" path="res://assets/service_bar.png" id="19_puapg"]
 [ext_resource type="Script" path="res://instructions.gd" id="20_0ebww"]
+[ext_resource type="PackedScene" uid="uid://dl6go1tewgek7" path="res://pause.tscn" id="21_2ldcm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sswgr"]
 radius = 62.0
@@ -209,6 +210,8 @@ theme_override_font_sizes/font_size = 30
 text = "5G"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="pause" parent="." instance=ExtResource("21_2ldcm")]
 
 [connection signal="body_entered" from="og_bee/detection" to="." method="_on_detection_body_entered"]
 [connection signal="timeout" from="timer_1" to="." method="_on_timer_1_timeout"]
